@@ -1,0 +1,7 @@
+
+<!-- indexer::stop -->
+<div class="navbar-end">
+  <?= $this->items ?>
+</div>
+
+<!-- indexer::continue -->

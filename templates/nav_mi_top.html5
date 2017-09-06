@@ -1,0 +1,21 @@
+
+	<?php foreach ( $this->items as $item ): ?>
+		<?php if ( $item['isActive'] ): ?>
+            <div class="navbar-item <?= $item['class'] ?>"><span class="<?= $item['class'] ?>"<?php if ( ! empty( $item['subitems'] ) ) {
+					echo ' aria-haspopup="true"';
+				} ?>><?= $item['link'] ?></span><?= $item['subitems'] ?></div>
+		<?php else: ?>
+            <div class="navbar-item <?= $item['class']?>">
+            <a class="<?= $item['class']?>" href="<?= $item['href'] ?: './' ?>" title="<?= $item['pageTitle'] ?: $item['title'] ?>"<?php if ( $item['accesskey'] ) {
+					echo ' accesskey="' . $item['accesskey'] . '"';
+				} ?><?php if ( $item['tabindex'] ) {
+					echo ' tabindex="' . $item['tabindex'] . '"';
+				} ?><?php if ( $item['nofollow'] ) {
+					echo ' rel="nofollow"';
+				} ?><?= $item['target'] ?><?php if ( ! empty( $item['subitems'] ) ) {
+					echo ' aria-haspopup="true"';
+				} ?>><?= $item['link'] ?></a><?= $item['subitems'] ?>
+            </div>
+		<?php endif; ?>
+	<?php endforeach; ?>
+

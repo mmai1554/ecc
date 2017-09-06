@@ -1,0 +1,25 @@
+<div class="crewmember"<?php echo $this->cssID ?>>
+    <div class="inner">
+        <div class="image">
+            <div class="mii-media">
+                <a href="mailto:<?php echo $this->email ?>" title="<?= $this->email ?>">
+					<?php if ( $image = $this->arrData['getImageObject']( $this->image ) ): ?>
+                        <img src="<?php echo $image->src ?>" alt="<?php echo $image->alt ?: $this->name ?>"<?php echo $image->imgSize ?>>
+					<?php else: ?>
+                        <img src="#" alt="<?php echo $this->name ?>" width="300" height="300" class="img-placeholder">
+					<?php endif ?>
+                    <!--                    <div class="mi-media__body">-->
+                    <!--                        <div class="mailicon">@</div>-->
+                    <!--                    </div>-->
+                    <div class="crew-name"><p>
+							<?= $this->name ?><br>
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
