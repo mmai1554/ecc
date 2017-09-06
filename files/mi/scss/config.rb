@@ -1,4 +1,4 @@
-
+require 'bootstrap-sass'
 # Require any additional compass plugins here.
 
 Encoding.default_external = 'utf-8'
