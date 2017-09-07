@@ -1,6 +1,10 @@
+// mmai: Overwrite variables from twitter bootstrap before importing bootstrap!!
+// @import "compass/reset";
+@import "_variables.scss";
 @import "bootstrap";
 @import "mi_fonts";
 @import "mi_mixins";
+@import "compass/typography/lists/horizontal-list";
 
 $ecc-rot: rgb(167, 3, 48);
 $ecc-rot-dunkler: rgb(162, 3, 47);
@@ -9,6 +13,7 @@ $web-schwarz: rgb(30, 30, 30);
 $ecc-grau3: #efedef;
 $ecc-grau1: rgb(187, 189, 190);
 $ecc-grau2: rgb(134, 136, 137);
+$ecc-grau-news:#A9AAA9;
 $white: #FFFFFF;
 
 // Main 7:
@@ -36,25 +41,6 @@ $ecc-grau: $ecc-grau1;
   font-style:normal;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  @extend .normal;
-  color: $web-schwarz;
-}
-
-h1, h2 {
-  font-size: 2rem;
-  line-height: 2.3rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  color: $ecc-rot;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 .title {
   font-size: 1.5rem;
 }
@@ -63,83 +49,235 @@ h3 {
   font-size: 1rem;
 }
 
-.mi-logo {
-  max-width: 254px;
-  img {
-    image-rendering: -webkit-optimize-contrast;
-  }
-  @include bp(mobile) {
-    margin: 0 auto;
-  }
-}
-
 .invisible {
   @include mi_hide_from_dom;
 }
 
-#header {
-  .navbar {
-    .navbar-item, .navbar-link {
-      padding: 0 1rem;
-    }
-    .active {
-      color: $ecc-rot;
-    }
-    @media screen and (min-width: 1008px) {
-      .navbar-item, .navbar-link {
-        -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-        align-items: flex-end;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-    }
+.row-vertical-align {
+  display: flex;
+  flex-direction: row;
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    // justify-content: center; /* Optional, to align inner items horizontally inside the column */
   }
 }
 
-#header {
-  //position: fixed;
-  //top: 0;
-  //left: 0;
-  //width: 100%;
-  //z-index: 1000;
-  //height: 200px;
-  //overflow: hidden;
-  //-webkit-transition: height 0.3s;
-  //-moz-transition: height 0.3s;
-  //transition: height 0.3s;
-  // text-align:center;
-  // line-height:160px;
-}
-
-#header.shrink {
-  //height: 100px;
-}
-
-
-#main {
-  ul {
-    margin-left: 0;
-    padding-left: 1em;
-    // text-indent: -1em;
-    list-style-type: disc;
-    li {
-
-    }
+.mi-more-space-between-rows {
+  .row {
+    margin-bottom:40px;
   }
 }
 
-.ce_image {
-  overflow: hidden;
+
+.bg-red, .mi-bg-red {
+  background-color: $ecc-rot-dunkler;
+  color:$white;
 }
 
-.bg-red {
-  background-color: $ecc-rot;
+.mi-bg-grey {
+  background-color: $ecc-grau-news;
 }
 
 .no-line-height {
   line-height: 0 !important;
+}
+
+
+.mi-vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+// =======
+// TYPO:
+// =======
+
+.mi-lh-13 {
+  h1, h2, h3 {
+    line-height:1.3em;
+  }
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top:5px;
+  margin-bottom:17px;
+}
+
+h4 {
+  font-size:14px;
+  @extend .bold;
+  margin-top:0px;
+  margin-bottom:2px;
+  line-height:1.1em;
+}
+
+p {
+  margin-bottom:17px;
+}
+
+
+
+// =======
+// LAYOUT:
+// =======
+
+// make all images responsive by default:
+img {
+  @extend .img-responsive;
+}
+
+.mi-link-neutral {
+  a {
+    color: $web-schwarz;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mi-nogutter {
+  // @todo needs refactoring:
+  .row {
+    margin-right:-30px;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  @extend .semi-bold;
+  color: $web-schwarz;
+}
+
+$header-height:170px;
+$header-height-shrink:80px;
+$header-oben:20px;
+$header-unten:0px;
+
+#header {
+  //@include devborder(green);
+  height:$header-height;
+  width: 100%;
+  background-color: #FFF;
+  padding-top:$header-oben;
+  margin-bottom: $header-unten;
+  .inside {
+    position:relative;
+  }
+
+  // border-bottom: 1px solid #e1e1e1;
+  /* animation magic */
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  z-index: 9999;
+  top: 0;
+  position: fixed;
+
+  &.shrink {
+    background-color:#FFF;
+    height:$header-height-shrink;
+    .mi-nav-top {
+      margin-top:5px;
+    }
+  }
+}
+
+#wrapper {
+  margin-top:$header-height;
+}
+
+
+
+#logo {
+  max-width:270px;
+  img {
+    @extend .img-responsive;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+
+.mi-nav-top {
+  margin-top:95px;
+  @extend .bold;
+  @extend .text-right;
+  a {
+    color:$web-schwarz;
+    &:hover {
+      color:$ecc-rot;
+    }
+    padding-left:20px;
+  }
+  span {
+    padding-left:20px;
+  }
+  .active {
+    color:$ecc-rot;
+  }
+  ul {
+    float:right;
+    @include horizontal-list-container;
+    & > li {
+      @include horizontal-list-item;
+    }
+  }
+}
+
+#main {
+  //ul {
+  //  margin-left: 0;
+  //  padding-left: 1em;
+  //  // text-indent: -1em;
+  //  list-style-type: disc;
+  //  li {
+  //
+  //  }
+  //}
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+  }
+  ul > li:before {
+    display: inline-block;
+    //content: "\2014\a0";
+    content: "-";
+    font-weight:300;
+    width: 1em;
+    margin-left: -1em;
+  }
+}
+
+.ce_text {
+  overflow:hidden;
+}
+
+.mi-contentbox {
+  padding-top:10px;
+}
+// @todo: variable!
+.mi-contentbox-leftright {
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.kompetenz {
+  // @extend .container;
+  background: url('/files/frame/lebendigkeit_kompetenz_wachstum.jpg') no-repeat center;
+  background-size: cover;
+  h1 {
+    margin-top:100px;
+    margin-bottom:100px;
+    span {
+      margin-left: -10px;
+    }
+    line-height: 1.3em;
+    font-size:110px;
+    font-weight: 700;
+    color: $white;
+  }
 }
 
 .mi-hero {
@@ -152,40 +290,10 @@ h3 {
 }
 
 
-.img-placeholder {
-  box-sizing: border-box;
-  display: inline-block;
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    background: lightgray;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  &:after {
-    content: attr(alt);
-    white-space: pre;
-    color: gray;
-    text-align: center;
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: calc(50% - .5em);
-    font-size: 100%;
-  }
-}
-
-
 
 
 .crew {
   .crewmember {
-    @extend .column;
-    @extend .is-2;
-    @extend .is-narrow;
     // max-width: 200px;
     .image {
       display: block;
@@ -214,9 +322,6 @@ h3 {
   }
 
   .redsquare, .whitesquare {
-    @extend .column;
-    @extend .is-2;
-    @extend .is-narrow;
     .inner {
       height:100%;
       width:100%;
@@ -310,23 +415,7 @@ h3 {
 
 // crew
 
-.news {
-  p {
-    font-size: 0.9rem;
-    line-height: 1.2rem;
-  }
-  .workshop {
-    font-size: 0.9rem;
-    line-height: 1rem;
-    margin-bottom: 0.9rem;
-  }
-  .bg-news {
-    background-color: $grey-light;
-  }
-  //.tile.is-vertical > .tile.is-child:not(:last-child) {
-  //  margin-bottom:0 !important;
-  //}
-}
+
 
 .mi-shine img {
   -webkit-filter: grayscale(100%);
@@ -340,43 +429,21 @@ h3 {
   }
 }
 
-.referenzen {
-  .columns {
-    align-items: center;
-    // justify-content: center;
-  }
-  .column {
-    // @extend .is-3;
-    text-align: center;
-    //border:1px solid red;
-    //align-items: center;
-  }
+//.herzkrone {
+//  background: url('/files/content/home/Herzkrone_marshi.jpg') no-repeat right;
+//  background-size: cover;
+//  min-height:350px;
+//}
+
+.mi-main7-news {
+  padding:15px 30px;
 }
 
-.kompetenz {
-  margin-top: 10px;
-  background: url('/files/frame/lebendigkeit_kompetenz_wachstum.jpg') no-repeat center;
-  background-size: cover;
-  h1 {
-    span {
-      margin-left: -10px;
-    }
-    font-family: "open-sans", sans-serif;
-    font-size: 150px;
-    font-weight: 700;
-    color: $white;
-  }
+.mi-neue-ufer {
+  margin-top:150px;
 }
 
-.hero-crew {
-  background-image: url('/files/frame/heroes/page-team.jpg');
-  background-size: cover;
-}
 
-.hero-referenzen {
-  height: 50px;
-  margin-bottom: 27px;
-}
 
 
 

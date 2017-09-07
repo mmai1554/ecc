@@ -37,6 +37,10 @@
 	zoom: 1;
 }
 
+@mixin devborder($color) {
+  border:1px solid $color !important;
+}
+
 @mixin bp($point) {
   @if $point == desktop {
 	@media (max-width: 1600px) {
