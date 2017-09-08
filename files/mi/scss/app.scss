@@ -5,6 +5,7 @@
 @import "mi_fonts";
 @import "mi_mixins";
 @import "compass/typography/lists/horizontal-list";
+@import "_font-awesome.scss";
 
 $ecc-rot: rgb(167, 3, 48);
 $ecc-rot-dunkler: rgb(162, 3, 47);
@@ -51,6 +52,32 @@ $ecc-grau: $ecc-grau1;
 
 .invisible {
   @include mi_hide_from_dom;
+}
+
+.rot {
+  color:$ecc-rot;
+}
+.rosa {
+  color:$ecc-rosa;
+}
+.lila {
+  color:$ecc-violett;
+}
+.flieder {
+  color:$ecc-flieder;
+}
+.blau {
+  color:$ecc-main7-blau;
+}
+.hellblau {
+  color:$ecc-hellblau;
+}
+.grau {
+  color:$ecc-grau2;
+}
+
+.bg-rosa {
+  background-color:$ecc-rosa;
 }
 
 .row-vertical-align {
@@ -248,6 +275,28 @@ $header-unten:0px;
     width: 1em;
     margin-left: -1em;
   }
+  .main7list {
+    font-size:16px;
+    @extend .bold;
+    ul {
+      list-style:none;
+      margin-left: 0;
+      padding-left:0;
+      .fa {
+        padding:0 3px;
+      }
+      & > li {
+        margin-bottom:15px;
+        &:before {
+          display: none;
+          content: "";
+          font-weight:300;
+          width: 1em;
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
 
 .ce_text {
@@ -263,20 +312,41 @@ $header-unten:0px;
   padding-right:15px;
 }
 
+@mixin textforhero($font-size:110px, $line-height:1.3em, $font-color:$white, $margin:100px) {
+  margin-top:$margin;
+  margin-bottom:$margin;
+  span {
+    margin-left: -10px;
+  }
+  line-height: $line-height;
+  font-size:$font-size;
+  font-weight: 700;
+  color: $font-color;
+}
+
 .kompetenz {
-  // @extend .container;
   background: url('/files/frame/lebendigkeit_kompetenz_wachstum.jpg') no-repeat center;
   background-size: cover;
   h1 {
-    margin-top:100px;
-    margin-bottom:100px;
-    span {
-      margin-left: -10px;
-    }
-    line-height: 1.3em;
-    font-size:110px;
-    font-weight: 700;
-    color: $white;
+    @include textforhero();
+  }
+}
+
+.arbeitenmitsinn {
+  background: url('/files/frame/Riesenrad_CF.jpg') no-repeat;
+  background-size: cover;
+  background-position:-100px 0;
+  h1 {
+    @include textforhero();
+  }
+}
+
+.fuehrenneuezeit {
+  background: url('/files/content/corporate_flow/M7_Akademie_Himmel.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0;
+  h3 {
+    @include textforhero(90px, 1.2em, $white, 80px);
   }
 }
 
