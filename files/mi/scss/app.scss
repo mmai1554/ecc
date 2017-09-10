@@ -27,6 +27,7 @@ $ecc-main7-blau:rgba(0, 45, 76, 1.0);
 $ecc-hellblau: rgb(161, 195, 212);
 $ecc-grau: $ecc-grau1;
 
+// @extend these classes into more elaborate classes:
 .normal {
   font-weight:400;
   font-style:normal;
@@ -42,6 +43,7 @@ $ecc-grau: $ecc-grau1;
   font-style:normal;
 }
 
+// @todo: OLD styles. used any more?
 .title {
   font-size: 1.5rem;
 }
@@ -80,6 +82,7 @@ $ecc-grau: $ecc-grau1;
   background-color:$ecc-rosa;
 }
 
+// wrap around column divs to align them vertically:
 .row-vertical-align {
   display: flex;
   flex-direction: row;
@@ -90,6 +93,29 @@ $ecc-grau: $ecc-grau1;
     // justify-content: center; /* Optional, to align inner items horizontally inside the column */
   }
 }
+
+.mi-align-height {
+  .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+  }
+  .row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mi-align-content-bottom {
+  display: flex;
+  flex-direction:row !important;
+  & > div {
+    align-self: flex-end;
+  }
+}
+
 
 .mi-more-space-between-rows {
   .row {
@@ -171,6 +197,17 @@ img {
     margin-right:-30px;
   }
 }
+
+.mi-no-padding-right {
+  padding-right:0 !important;
+}
+
+.mi-no-padding-leftright {
+  padding-right:0 !important;
+  padding-left:0 !important;
+}
+
+
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -303,6 +340,15 @@ $header-unten:0px;
   overflow:hidden;
 }
 
+.mi-larger-text {
+  font-size:16px;
+}
+
+.mi-large-text {
+  @extend .normal;
+  font-size:30px;
+}
+
 .mi-contentbox {
   padding-top:10px;
 }
@@ -310,6 +356,10 @@ $header-unten:0px;
 .mi-contentbox-leftright {
   padding-left:15px;
   padding-right:15px;
+}
+
+.mi-margin-top {
+  margin-top:30px;
 }
 
 @mixin textforhero($font-size:110px, $line-height:1.3em, $font-color:$white, $margin:100px) {
@@ -350,6 +400,62 @@ $header-unten:0px;
   }
 }
 
+.sinnhaftzuleben {
+  position:relative;
+  background: url('/files/content/wozu/pusteblume_a_sto.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0
+
+  h3 {
+    @include textforhero(24px, 1.2em, $white, 280px);
+  }
+}
+
+.wirtschaftlichhandeln {
+  position:relative;
+  background: url('/files/content/wozu/wirtschaftlich-handeln.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0
+  h3 {
+    @include textforhero(24px, 1.2em, $white, 0px);
+    margin-top:220px;
+  }
+}
+
+.bereitfuerfreude {
+  position:relative;
+  background: url('/files/content/wozu/gluecklich.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0
+
+  h3 {
+    @include textforhero(24px, 1.2em, $white, 0px);
+  }
+}
+
+.beruehrendes {
+  position:relative;
+  background: url('/files/content/wozu/Herzlicht_Tina90.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0
+
+  h3 {
+    @include textforhero(24px, 1.2em, $white, 30px);
+    margin-top:270px;
+  }
+}
+
+.herzstift {
+  position:relative;
+  background: url('/files/content/wozu/Herz_Stift.jpg') no-repeat center;
+  background-size: cover;
+  // background-position:-100px 0
+  h3 {
+    @include textforhero(24px, 1.2em, $white, 30px);
+    margin-top:270px;
+  }
+}
+
 .mi-hero {
   height: 300px;
   margin-bottom: 27px;
@@ -357,6 +463,10 @@ $header-unten:0px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.mi-height-4 {
+  height:350px;
 }
 
 
