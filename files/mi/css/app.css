@@ -3682,8 +3682,9 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .mi-align-height .row { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; flex-wrap: wrap; }
 .mi-align-height .row > [class*='col-'] { display: flex; flex-direction: column; }
+.mi-align-height .row > [class*='col-'] .inside { display: flex; flex-direction: column; }
 
-.mi-align-content-bottom { display: flex; flex-direction: row !important; }
+.mi-align-content-bottom { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; flex-direction: row !important; }
 .mi-align-content-bottom > div { align-self: flex-end; }
 
 .mi-more-space-between-rows .row { margin-bottom: 40px; }

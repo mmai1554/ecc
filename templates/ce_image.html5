@@ -3,7 +3,6 @@
 <?php $this->block('content'); ?>
 
 
-
     <?php if ($this->href): ?>
       <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?>>
     <?php endif; ?>

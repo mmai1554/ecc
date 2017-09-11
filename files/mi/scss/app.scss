@@ -106,9 +106,16 @@ $ecc-grau: $ecc-grau1;
     display: flex;
     flex-direction: column;
   }
+  .row > [class*='col-'] .inside {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .mi-align-content-bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction:row !important;
   & > div {
