@@ -696,7 +696,7 @@ mark, .mark { background-color: #fcf8e3; padding: .2em; }
 
 .text-left { text-align: left; }
 
-.text-right, .mi-nav-top { text-align: right; }
+.text-right, .mi-nav-top, .mi-nav-footer { text-align: right; }
 
 .text-center { text-align: center; }
 
@@ -3649,11 +3649,11 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .sr-only-focusable:active, .sr-only-focusable:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
 
-.normal, .mi-large-text { font-weight: 400; font-style: normal; }
+.normal { font-weight: 400; font-style: normal; }
 
-.semi-bold, body { font-weight: 600; font-style: normal; }
+.semi-bold, body, .mi-large-text { font-weight: 600; font-style: normal; }
 
-.bold, h4, .mi-nav-top, #main .main7list { font-weight: 700; font-style: normal; }
+.bold, h4, .mi-nav-top, .mi-nav-top a, .mi-nav-top span, .mi-nav-footer, .mi-nav-footer a, .mi-nav-footer span, #main .main7list { font-weight: 700; font-style: normal; }
 
 .title { font-size: 1.5rem; }
 
@@ -3699,11 +3699,13 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .mi-lh-13 h1, .mi-lh-13 h2, .mi-lh-13 h3 { line-height: 1.3em; }
 
-h1, .h1, h2, .h2, h3, .h3 { margin-top: 5px; margin-bottom: 17px; }
+h1, .h1, h2, .h2, h3, .h3 { margin-top: 0px; margin-bottom: 10px; }
+
+h3 { font-size: 28px; line-height: 1.4em; }
+
+h4 { font-size: 14px; font-weight: bold; margin-bottom: 10px; line-height: 1.4em; }
 
 h4 { font-size: 14px; margin-top: 0px; margin-bottom: 2px; line-height: 1.1em; }
-
-p { margin-bottom: 17px; }
 
 .mi-link-neutral a { color: #1e1e1e; }
 .mi-link-neutral a:hover { cursor: pointer; }
@@ -3712,12 +3714,14 @@ p { margin-bottom: 17px; }
 
 .mi-no-padding-right { padding-right: 0 !important; }
 
+.mi-no-padding-left { padding-left: 0 !important; }
+
 .mi-no-padding-leftright { padding-right: 0 !important; padding-left: 0 !important; }
 
 body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 
 #header { height: 170px; width: 100%; background-color: #FFF; padding-top: 20px; margin-bottom: 0px; /* animation magic */ -webkit-transition: all 0.4s ease-in-out; -moz-transition: all 0.4s ease-in-out; z-index: 9999; top: 0; position: fixed; }
-#header .inside { position: relative; }
+#header .inside { position: relative; margin-top: 10px; }
 #header.shrink { background-color: #FFF; height: 80px; }
 #header.shrink .mi-nav-top { margin-top: 5px; }
 
@@ -3726,10 +3730,12 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 #logo { max-width: 270px; }
 #logo img { image-rendering: -webkit-optimize-contrast; }
 
-.mi-nav-top { margin-top: 95px; }
+.mi-nav-top { margin-right: 5px; margin-top: 95px; }
 .mi-nav-top a { color: #1e1e1e; padding-left: 20px; }
-.mi-nav-top a:hover { color: #a70330; }
+.mi-nav-top a:hover { color: #a70330; text-decoration: none; }
 .mi-nav-top span { padding-left: 20px; }
+.mi-nav-top a.last, .mi-nav-top span.last { padding-left: 60px; }
+.mi-nav-top a, .mi-nav-top span { font-size: 16px; }
 .mi-nav-top .active { color: #a70330; }
 .mi-nav-top ul { float: right; margin: 0; padding: 0; border: 0; overflow: hidden; *zoom: 1; }
 .mi-nav-top ul > li { list-style-image: none; list-style-type: none; margin-left: 0; white-space: nowrap; float: left; padding-left: 4px; padding-right: 4px; }
@@ -3737,19 +3743,33 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .mi-nav-top ul > li:last-child { padding-right: 0; }
 .mi-nav-top ul > li.last { padding-right: 0; }
 
+.mi-nav-footer a { color: #1e1e1e; padding-left: 20px; }
+.mi-nav-footer a:hover { color: #a70330; text-decoration: none; }
+.mi-nav-footer span { padding-left: 20px; }
+.mi-nav-footer a, .mi-nav-footer span { font-size: 16px; }
+.mi-nav-footer .active { color: #a70330; }
+.mi-nav-footer ul { float: right; margin: 0; padding: 0; border: 0; overflow: hidden; *zoom: 1; }
+.mi-nav-footer ul > li { list-style-image: none; list-style-type: none; margin-left: 0; white-space: nowrap; float: left; padding-left: 4px; padding-right: 4px; }
+.mi-nav-footer ul > li:first-child { padding-left: 0; }
+.mi-nav-footer ul > li:last-child { padding-right: 0; }
+.mi-nav-footer ul > li.last { padding-right: 0; }
+
+#footer .container { padding: 20px 0; background-color: #bbbdbe; }
+#footer .container.inside { padding-right: 10px; }
+
 #main ul { list-style: none; margin-left: 0; padding-left: 1em; }
 #main ul > li:before { display: inline-block; content: "-"; font-weight: 300; width: 1em; margin-left: -1em; }
-#main .main7list { font-size: 16px; }
+#main .main7list { font-size: 14px; }
 #main .main7list ul { list-style: none; margin-left: 0; padding-left: 0; }
 #main .main7list ul .fa { padding: 0 3px; }
-#main .main7list ul > li { margin-bottom: 15px; }
+#main .main7list ul > li { margin-bottom: 10px; }
 #main .main7list ul > li:before { display: none; content: ""; font-weight: 300; width: 1em; margin-left: 0; }
 
 .ce_text { overflow: hidden; }
 
 .mi-larger-text { font-size: 16px; }
 
-.mi-large-text { font-size: 30px; }
+.mi-large-text { font-size: 28px; line-height: 1.3em; }
 
 .mi-contentbox { padding-top: 10px; }
 
@@ -3766,27 +3786,27 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .arbeitenmitsinn h1 span { margin-left: -10px; }
 
 .fuehrenneuezeit { background: url("/files/content/corporate_flow/M7_Akademie_Himmel.jpg") no-repeat center; background-size: cover; }
-.fuehrenneuezeit h3 { margin-top: 80px; margin-bottom: 80px; line-height: 1.2em; font-size: 90px; font-weight: 700; color: #FFFFFF; }
+.fuehrenneuezeit h3 { margin-top: 80px; margin-bottom: 80px; line-height: 1.4em; font-size: 90px; font-weight: 700; color: #FFFFFF; }
 .fuehrenneuezeit h3 span { margin-left: -10px; }
 
 .sinnhaftzuleben { position: relative; background: url("/files/content/wozu/pusteblume_a_sto.jpg") no-repeat center; background-size: cover; }
-.sinnhaftzuleben h3 { margin-top: 280px; margin-bottom: 280px; line-height: 1.2em; font-size: 24px; font-weight: 700; color: #FFFFFF; }
+.sinnhaftzuleben h3 { margin-top: 10px; margin-bottom: 10px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; }
 .sinnhaftzuleben h3 span { margin-left: -10px; }
 
 .wirtschaftlichhandeln { position: relative; background: url("/files/content/wozu/wirtschaftlich-handeln.jpg") no-repeat center; background-size: cover; }
-.wirtschaftlichhandeln h3 { margin-top: 0px; margin-bottom: 0px; line-height: 1.2em; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 220px; }
+.wirtschaftlichhandeln h3 { margin-top: 0px; margin-bottom: 0px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; margin-top: 220px; }
 .wirtschaftlichhandeln h3 span { margin-left: -10px; }
 
 .bereitfuerfreude { position: relative; background: url("/files/content/wozu/gluecklich.jpg") no-repeat center; background-size: cover; }
-.bereitfuerfreude h3 { margin-top: 0px; margin-bottom: 0px; line-height: 1.2em; font-size: 24px; font-weight: 700; color: #FFFFFF; }
+.bereitfuerfreude h3 { margin-top: 0px; margin-bottom: 0px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; }
 .bereitfuerfreude h3 span { margin-left: -10px; }
 
 .beruehrendes { position: relative; background: url("/files/content/wozu/Herzlicht_Tina90.jpg") no-repeat center; background-size: cover; }
-.beruehrendes h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.2em; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
+.beruehrendes h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
 .beruehrendes h3 span { margin-left: -10px; }
 
 .herzstift { position: relative; background: url("/files/content/wozu/Herz_Stift.jpg") no-repeat center; background-size: cover; }
-.herzstift h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.2em; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
+.herzstift h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.4em; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
 .herzstift h3 span { margin-left: -10px; }
 
 .mi-hero { height: 300px; margin-bottom: 27px; background-position: center; background-repeat: no-repeat; background-size: cover; }
@@ -3815,7 +3835,5 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .mi-shine img:hover { -webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); filter: grayscale(0%); }
 
 .mi-main7-news { padding: 15px 30px; }
-
-.mi-neue-ufer { margin-top: 150px; }
 
 /*# sourceMappingURL=app.css.map */
