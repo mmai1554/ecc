@@ -1,4 +1,5 @@
-<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ( $this->style ): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="container">
+    <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ( $this->style ): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
 	<?php if ( $this->printable ): ?>
         <!-- indexer::stop -->
@@ -42,4 +43,5 @@
         <!-- indexer::continue -->
 	<?php endif; ?>
 
+</div>
 </div>
