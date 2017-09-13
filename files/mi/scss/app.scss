@@ -1,5 +1,10 @@
 // mmai: Overwrite variables from twitter bootstrap before importing bootstrap!!
 // @import "compass/reset";
+$grid-gutter-width:         0px !default;
+$mi-gutter-width:30px;
+$mi-gutter-height:20px;
+$mi-height:190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
+
 @import "_variables.scss";
 @import "bootstrap";
 @import "mi_fonts";
@@ -112,6 +117,16 @@ $ecc-grau: $ecc-grau1;
   }
 }
 
+/**
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+ */
+
 .mi-align-content-bottom {
   display: -webkit-box;
   display: -webkit-flex;
@@ -126,13 +141,21 @@ $ecc-grau: $ecc-grau1;
 
 .mi-more-space-between-rows {
   .row {
-    margin-bottom:40px;
+    margin-bottom:$mi-gutter-height * 2;
   }
 }
 
 
 .bg-red, .mi-bg-red {
   background-color: $ecc-rot-dunkler;
+  color:$white;
+}
+
+.mi-textcolor-red {
+  color:$ecc-rot-dunkler;
+}
+
+.mi-textcolor-white {
   color:$white;
 }
 
@@ -162,7 +185,7 @@ $ecc-grau: $ecc-grau1;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
-  margin-top:0px;
+  margin-top:0;
   margin-bottom:10px;
 }
 
@@ -212,24 +235,36 @@ img {
   }
 }
 
-.mi-nogutter {
-  // @todo needs refactoring:
-  .row {
-    margin-right:-30px;
-  }
+//.mi-nogutter {
+//  // @todo needs refactoring:
+//  .row {
+//    margin-right:-30px;
+//  }
+//}
+//
+//.mi-no-padding-right {
+//  padding-right:0 !important;
+//}
+//
+//.mi-no-padding-left {
+//  padding-left:0 !important;
+//}
+//
+//.mi-no-padding-leftright {
+//  padding-right:0 !important;
+//  padding-left:0 !important;
+//}
+
+.mi-box {
+  padding:$mi-gutter-height/2 $mi-gutter-width/2;
 }
 
-.mi-no-padding-right {
-  padding-right:0 !important;
-}
-
-.mi-no-padding-left {
-  padding-left:0 !important;
-}
-
-.mi-no-padding-leftright {
-  padding-right:0 !important;
-  padding-left:0 !important;
+[class^="col-"] > .ce_text {
+  padding:$mi-gutter-height/2 $mi-gutter-width/2;
+  position:relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 
@@ -286,6 +321,10 @@ $header-unten:0px;
     @extend .img-responsive;
     image-rendering: -webkit-optimize-contrast;
   }
+}
+
+.shrink #logo {
+  max-width:310px;
 }
 
 
@@ -425,14 +464,14 @@ $header-unten:0px;
   @extend .semi-bold;
 }
 
-.mi-contentbox {
-  padding-top:10px;
-}
-// @todo: variable!
-.mi-contentbox-leftright {
-  padding-left:15px;
-  padding-right:15px;
-}
+//.mi-contentbox {
+//  padding-top:10px;
+//}
+//// @todo: variable!
+//.mi-contentbox-leftright {
+//  padding-left:15px;
+//  padding-right:15px;
+//}
 
 .mi-margin-top {
   margin-top:30px;
@@ -487,26 +526,15 @@ $header-unten:0px;
   }
 }
 
-.wirtschaftlichhandeln {
-  position:relative;
-  background: url('/files/content/wozu/wirtschaftlich-handeln.jpg') no-repeat center;
-  background-size: cover;
-  // background-position:-100px 0
-  h3 {
-    @include textforhero(28px, 1.4em, $white, 0px);
-    margin-top:220px;
-  }
+.mi-bgimage-in-text {
+    position:relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.bereitfuerfreude {
-  position:relative;
-  background: url('/files/content/wozu/gluecklich.jpg') no-repeat center;
-  background-size: cover;
-  // background-position:-100px 0
-
-  h3 {
-    @include textforhero(28px, 1.4em, $white, 0px);
-  }
+.mi-bgimage-bottom {
+    background-position: bottom !important;
 }
 
 .beruehrendes {
@@ -532,19 +560,26 @@ $header-unten:0px;
   }
 }
 
-.mi-hero {
-  height: 300px;
-  margin-bottom: 27px;
-  // background: url('/files/frame/page-crew.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
+.pusteblume {
+  position:relative;
+  background: url('/files/content/wozu/pusteblume_a_sto.jpg') no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
+
+.mi-height-1 {
+  height:$mi-height;
+}
+.mi-height-2 {
+  height:$mi-height * 2;
+}
+.mi-height-3 {
+  height:$mi-height * 3;
+}
 .mi-height-4 {
-  height:350px;
+  height:$mi-height * 4;
 }
-
 
 
 
