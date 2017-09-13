@@ -18,7 +18,7 @@ return array(
 			'inputType' => 'fileTree',
 			'eval' => array(
 				'fieldType' => 'radio',
-				'path' => 'files/content/crew',
+				'path' => 'files/content/wer',
 				'filesOnly' => true,
 				'extensions' => 'jpg,jpeg,png,gif,svg',
 			),
@@ -30,7 +30,7 @@ return array(
 			'inputType' => 'fileTree',
 			'eval' => array(
 				'fieldType' => 'radio',
-				'path' => 'files/content/crew',
+				'path' => 'files/content/wer',
 				'filesOnly' => true,
 				'extensions' => 'jpg,jpeg,png,gif,svg',
 			),

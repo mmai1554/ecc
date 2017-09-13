@@ -3649,6 +3649,21 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .sr-only-focusable:active, .sr-only-focusable:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
 
+.crew-name { display: block; position: absolute; bottom: 0; width: 100%; letter-spacing: 0; background-color: rgba(255, 255, 255, 0.6); }
+.crew-name p, .crew-name span { font-size: 12px; margin: 0; line-height: 1em; padding: 3px 5px; color: #1e1e1e; }
+
+.mi-media { display: inline-block; position: relative; vertical-align: top; line-height: 0; margin: 0; padding: 0; }
+
+.mi-media__body { background: rgba(71, 71, 71, 0.8); bottom: 0; color: white; font-size: 1em; left: 0; opacity: 0; overflow: hidden; padding: 3.75em 3em; position: absolute; text-align: center; top: 0; right: 0; -webkit-transition: 0.6s; transition: 0.6s; }
+.mi-media__body:hover { opacity: 1; }
+.mi-media__body:after, .mi-media__body:before { bottom: 1em; content: ''; left: 1em; opacity: 0; position: absolute; right: 1em; top: 1em; -webkit-transform: scale(1.5); -ms-transform: scale(1.5); transform: scale(1.5); -webkit-transition: 0.6s 0.2s; transition: 0.6s 0.2s; }
+.mi-media__body:before { border-bottom: none; border-top: none; left: 2em; right: 2em; }
+.mi-media__body:after { border-left: none; border-right: none; bottom: 2em; top: 2em; }
+.mi-media__body:hover:after, .mi-media__body:hover:before { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
+.mi-media__body .mailicon { margin-top: 30px; font-size: 100px; color: rgba(255, 255, 255, 0.9); line-height: 0; }
+.mi-media__body h2 { margin-top: 0; }
+.mi-media__body p { margin-bottom: 1.5em; }
+
 .normal { font-weight: 400; font-style: normal; }
 
 .semi-bold, body, .mi-large-text { font-weight: 600; font-style: normal; }
@@ -3816,24 +3831,6 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .mi-height-3 { height: 570px; }
 
 .mi-height-4 { height: 760px; }
-
-.crew .crewmember .image { display: block; }
-.crew .crewmember .inner { border-right: 20px solid #FFF; border-bottom: 20px solid #FFF; }
-.crew .crew-name { display: block; position: absolute; bottom: 0; width: 100%; letter-spacing: 0; background-color: rgba(255, 255, 255, 0.6); }
-.crew .crew-name p { padding-left: 5px; }
-.crew .crew-name p, .crew .crew-name span { font-size: 0.9rem; }
-.crew .redsquare .inner, .crew .whitesquare .inner { height: 100%; width: 100%; background-color: #a70330; border-right: 20px solid #FFF; border-bottom: 20px solid #FFF; }
-.crew .whitesquare { background-color: #FFFFFF; }
-.crew .mi-media { display: inline-block; position: relative; vertical-align: top; line-height: 0; margin: 0; padding: 0; }
-.crew .mi-media__body { background: rgba(71, 71, 71, 0.8); bottom: 0; color: white; font-size: 1em; left: 0; opacity: 0; overflow: hidden; padding: 3.75em 3em; position: absolute; text-align: center; top: 0; right: 0; -webkit-transition: 0.6s; transition: 0.6s; }
-.crew .mi-media__body:hover { opacity: 1; }
-.crew .mi-media__body:after, .crew .mi-media__body:before { bottom: 1em; content: ''; left: 1em; opacity: 0; position: absolute; right: 1em; top: 1em; -webkit-transform: scale(1.5); -ms-transform: scale(1.5); transform: scale(1.5); -webkit-transition: 0.6s 0.2s; transition: 0.6s 0.2s; }
-.crew .mi-media__body:before { border-bottom: none; border-top: none; left: 2em; right: 2em; }
-.crew .mi-media__body:after { border-left: none; border-right: none; bottom: 2em; top: 2em; }
-.crew .mi-media__body:hover:after, .crew .mi-media__body:hover:before { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
-.crew .mi-media__body .mailicon { margin-top: 30px; font-size: 100px; color: rgba(255, 255, 255, 0.9); line-height: 0; }
-.crew .mi-media__body h2 { margin-top: 0; }
-.crew .mi-media__body p { margin-bottom: 1.5em; }
 
 .mi-shine img { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); transition: all 0.5s ease; }
 .mi-shine img:hover { -webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); filter: grayscale(0%); }
