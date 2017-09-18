@@ -107,32 +107,43 @@ $ecc-grau: $ecc-grau1;
 }
 
 .mi-shine {
+  .row {
+    margin-bottom: $mi-gutter-height * 2;
+  }
   .mi-box {
     padding: 0;
     img {
       max-width: 100px;
     }
   }
-  .ce_gallery {
-    [class*=" col-"] {
-      @extend .mi-padding-leftright;
-    }
-    transform-style: preserve-3d;
-    img, .ce_image {
-      // @include vertical-align();
-    }
-  }
-}
 
-.mi-shine img {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
-  transition: all 0.5s ease;
-  &:hover {
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    filter: grayscale(0%);
+  [class*=" col-"] {
+    @extend .mi-padding-leftright;
+  }
+
+  .inside {
+    min-height: $mi-height;
+    position: relative;
+  }
+
+  img {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    transition: all 0.5s ease;
+    &:hover {
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      filter: grayscale(0%);
+    }
+    // vertical and horizontal centering:
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -142,33 +153,23 @@ $ecc-grau: $ecc-grau1;
   }
 }
 
-.mi-align-height {
-  .row {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .row > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
-  }
-  .row > [class*='col-'] .inside {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/**
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
-
- */
+//.mi-align-height {
+//  .row {
+//    display: -webkit-box;
+//    display: -webkit-flex;
+//    display: -ms-flexbox;
+//    display: flex;
+//    flex-wrap: wrap;
+//  }
+//  .row > [class*='col-'] {
+//    display: flex;
+//    flex-direction: column;
+//  }
+//  .row > [class*='col-'] .inside {
+//    display: flex;
+//    flex-direction: column;
+//  }
+//}
 
 .mi-align-content-bottom {
   display: -webkit-box;
@@ -191,7 +192,7 @@ $ecc-grau: $ecc-grau1;
   background-color: $ecc-rot-dunkler;
   color: $white;
   a, a:hover {
-    color:$white;
+    color: $white;
   }
 }
 
@@ -265,12 +266,11 @@ h4 {
 }
 
 .mi-toggler {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-
 .mi-twistie {
-  position:relative;
+  position: relative;
   &:hover {
     text-decoration: none;
   }
@@ -282,9 +282,9 @@ h4 {
     text-decoration: none !important;
     color: $ecc-rot-dunkler;
     font-size: 60px;
-    line-height:1em;
-    float:left;
-    margin-top:-20px;
+    line-height: 1em;
+    float: left;
+    margin-top: -20px;
   }
 }
 
@@ -435,6 +435,9 @@ $header-unten: 0px;
   @extend .text-right;
   a {
     color: $web-schwarz;
+    &:active, &:visited, &:focus {
+      text-decoration:none;
+    }
     &:hover {
       color: $ecc-rot;
       text-decoration: none;
@@ -495,7 +498,7 @@ $header-unten: 0px;
 
 #footer {
   .container {
-    padding: 20px 0;
+    padding: 5px 0px 15px 0px;
     background-color: $ecc-grau;
     &.inside {
       padding-right: 10px;
@@ -636,8 +639,6 @@ $header-unten: 0px;
 .mi-height-4 {
   height: $mi-height * 4;
 }
-
-
 
 //.herzkrone {
 //  background: url('/files/content/home/Herzkrone_marshi.jpg') no-repeat right;

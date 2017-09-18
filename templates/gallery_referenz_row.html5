@@ -1,22 +1,25 @@
-
 <div class="row">
-  <?php foreach ($this->body as $class=>$row): ?>
-    <?php foreach ($row as $col): ?>
-      <?php if ($col->addImage): ?>
-        <div class="col-md-2 col-xs-4 <?= $col->alt ?>">
-            <?php if ($col->href): ?>
-              <a href="<?= $col->href ?>"<?= $col->attributes ?> title="<?= $col->alt ?>"><?php $this->insert('picture_default', $col->picture); ?></a>
-            <?php else: ?>
-                <?php
-                $col->picture['alt'] = 'Logo Referenz';
-                ?>
-              <?php $this->insert('picture_default', $col->picture); ?>
-            <?php endif; ?>
-            <?php if ($col->caption): ?>
-              <figcaption class="caption"><?= $col->caption ?></figcaption>
-            <?php endif; ?>
-        </div>
-      <?php endif; ?>
-    <?php endforeach; ?>
-  <?php endforeach; ?>
+	<?php foreach ( $this->body as $class => $row ): ?>
+		<?php foreach ( $row as $col ): ?>
+			<?php if ( $col->addImage ): ?>
+                <div class="col-md-2 col-xs-4 <?= $col->alt ?>">
+                    <div class="inside">
+
+
+						<?php if ( $col->href ): ?>
+                            <a href="<?= $col->href ?>"<?= $col->attributes ?> title="<?= $col->alt ?>"><?php $this->insert( 'picture_default', $col->picture ); ?></a>
+						<?php else: ?>
+							<?php
+							$col->picture['alt'] = 'Logo Referenz';
+							?>
+							<?php $this->insert( 'picture_default', $col->picture ); ?>
+						<?php endif; ?>
+						<?php if ( $col->caption ): ?>
+                            <figcaption class="caption"><?= $col->caption ?></figcaption>
+						<?php endif; ?>
+                    </div>
+                </div>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	<?php endforeach; ?>
 </div>

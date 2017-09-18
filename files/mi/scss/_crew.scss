@@ -12,15 +12,17 @@
     transition: .2s ease;
   }
   &:hover .overlay {
-    height: 10%;
+    height:25px;
   }
   .name {
     white-space: nowrap;
     color: $web-schwarz;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight:600;
     position: absolute;
     overflow: hidden;
-    padding:3px 5px;
+    margin:0 5px 10px 5px;
+    // border:1px solid red;
   }
 }
 

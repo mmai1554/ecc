@@ -2,6 +2,7 @@
 
 <?php $this->block('content'); ?>
 
+<div  class="inside">
 
     <?php if ($this->href): ?>
       <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?>>
@@ -16,6 +17,7 @@
     <?php if ($this->caption): ?>
       <figcaption class="caption"><?= $this->caption ?></figcaption>
     <?php endif; ?>
+</div>
 
 
 <?php $this->endblock(); ?>
