@@ -1,0 +1,7 @@
+
+<?php $this->block('content'); ?>
+
+  <?= $this->images ?>
+
+  <?= $this->pagination ?>
+

@@ -1,9 +1,9 @@
 // mmai: Overwrite variables from twitter bootstrap before importing bootstrap!!
 // @import "compass/reset";
-$grid-gutter-width:         0px !default;
-$mi-gutter-width:30px;
-$mi-gutter-height:20px;
-$mi-height:190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
+$grid-gutter-width: 0px !default;
+$mi-gutter-width: 30px;
+$mi-gutter-height: 20px;
+$mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
 
 @import "_variables.scss";
 @import "bootstrap";
@@ -20,7 +20,7 @@ $web-schwarz: rgb(30, 30, 30);
 $ecc-grau3: #efedef;
 $ecc-grau1: rgb(187, 189, 190);
 $ecc-grau2: rgb(134, 136, 137);
-$ecc-grau-news:#A9AAA9;
+$ecc-grau-news: #A9AAA9;
 $white: #FFFFFF;
 
 // Main 7:
@@ -29,24 +29,24 @@ $ecc-rosa2: #edcdd6;
 $ecc-violett: rgb(55, 33, 94);
 $ecc-flieder: rgb(187, 163, 203);
 $ecc-blau: rgb(0, 55, 98);
-$ecc-main7-blau:rgba(0, 45, 76, 1.0);
+$ecc-main7-blau: rgba(0, 45, 76, 1.0);
 $ecc-hellblau: rgb(161, 195, 212);
 $ecc-grau: $ecc-grau1;
 
 // @extend these classes into more elaborate classes:
 .normal {
-  font-weight:400;
-  font-style:normal;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .semi-bold {
-  font-weight:600;
-  font-style:normal;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .bold {
-  font-weight:700;
-  font-style:normal;
+  font-weight: 700;
+  font-style: normal;
 }
 
 // @todo: OLD styles. used any more?
@@ -63,29 +63,35 @@ $ecc-grau: $ecc-grau1;
 }
 
 .rot {
-  color:$ecc-rot;
+  color: $ecc-rot;
 }
+
 .rosa {
-  color:$ecc-rosa;
+  color: $ecc-rosa;
 }
+
 .lila {
-  color:$ecc-violett;
+  color: $ecc-violett;
 }
+
 .flieder {
-  color:$ecc-flieder;
+  color: $ecc-flieder;
 }
+
 .blau {
-  color:$ecc-main7-blau;
+  color: $ecc-main7-blau;
 }
+
 .hellblau {
-  color:$ecc-hellblau;
+  color: $ecc-hellblau;
 }
+
 .grau {
-  color:$ecc-grau2;
+  color: $ecc-grau2;
 }
 
 .bg-rosa {
-  background-color:$ecc-rosa;
+  background-color: $ecc-rosa;
 }
 
 // wrap around column divs to align them vertically:
@@ -100,12 +106,48 @@ $ecc-grau: $ecc-grau1;
   }
 }
 
+.mi-shine {
+  .mi-box {
+    padding: 0;
+    img {
+      max-width: 100px;
+    }
+  }
+  .ce_gallery {
+    [class*=" col-"] {
+      @extend .mi-padding-leftright;
+    }
+    transform-style: preserve-3d;
+    img, .ce_image {
+      // @include vertical-align();
+    }
+  }
+}
+
+.mi-shine img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.5s ease;
+  &:hover {
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
+}
+
+.vertical-align-parent {
+  .vertical-align-child {
+    @include vertical-align();
+  }
+}
+
 .mi-align-height {
   .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display:         flex;
+    display: flex;
     flex-wrap: wrap;
   }
   .row > [class*='col-'] {
@@ -133,31 +175,29 @@ $ecc-grau: $ecc-grau1;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  flex-direction:row !important;
+  flex-direction: row !important;
   & > div {
     align-self: flex-end;
   }
 }
 
-
 .mi-more-space-between-rows {
   .row {
-    margin-bottom:$mi-gutter-height * 2;
+    margin-bottom: $mi-gutter-height * 2;
   }
 }
 
-
 .bg-red, .mi-bg-red {
   background-color: $ecc-rot-dunkler;
-  color:$white;
+  color: $white;
 }
 
 .mi-textcolor-red {
-  color:$ecc-rot-dunkler;
+  color: $ecc-rot-dunkler;
 }
 
 .mi-textcolor-white {
-  color:$white;
+  color: $white;
 }
 
 .mi-bg-grey {
@@ -168,11 +208,10 @@ $ecc-grau: $ecc-grau1;
   line-height: 0 !important;
 }
 
-
 .mi-vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }
 
 // =======
@@ -181,42 +220,102 @@ $ecc-grau: $ecc-grau1;
 
 .mi-lh-13 {
   h1, h2, h3 {
-    line-height:1.3em;
+    line-height: 1.3em;
   }
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
-  margin-top:0;
-  margin-bottom:10px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
-h3 {
-  font-size:28px;
-  line-height:1.4em;
+h1, .h1, h3, .h3 {
+  font-size: 28px;
+  line-height: 1.4em;
 }
 
 h4 {
-  font-size:14px;
-  font-weight:bold;
-  margin-bottom:10px;
-  line-height:1.4em;
-}
-
-
-
-h4 {
-  font-size:14px;
+  font-size: 14px;
   @extend .bold;
-  margin-top:0px;
-  margin-bottom:2px;
-  line-height:1.1em;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  line-height: 1.1em;
 }
 
-p {
-  // margin-bottom:17px;
+.mi-larger-text, .mi-textsize-2 {
+  font-size: 16px;
+}
+
+.mi-large-text, .mi-textsize-3 {
+  font-size: 28px;
+  line-height: 1.3em;
+  @extend .semi-bold;
+}
+
+.mi-textsize-4 {
+  font-size: 90px;
+  line-height: 1.2em;
+  h1, h2, h3, h4, p {
+    line-height: 1.2em;
+    font-size: 90px;
+  }
+}
+
+.mi-toggler {
+  cursor:pointer;
 }
 
 
+.mi-twistie {
+  position:relative;
+  &:hover {
+    text-decoration: none;
+  }
+  &:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none !important;
+    color: $ecc-rot-dunkler;
+    font-size: 60px;
+    line-height:1em;
+    float:left;
+    margin-top:-20px;
+  }
+}
+
+.mi-twistie-up {
+  @extend .mi-twistie;
+  &:after {
+    content: "\f0d8";
+    //font-family: FontAwesome;
+    //font-style: normal;
+    //font-weight: normal;
+    //text-decoration: none !important;
+    //color: $ecc-rot-dunkler;
+    //font-size: 35px;
+    //float:left;
+  }
+}
+
+.mi-twistie-right {
+  @extend .mi-twistie;
+  &:after {
+    content: "\f0da";
+    //font-family: FontAwesome;
+    //font-style: normal;
+    //font-weight: normal;
+    //text-decoration: none !important;
+    //color: $ecc-rot-dunkler;
+    //font-size: 35px;
+    //float:left;
+  }
+}
+
+/*
+
+ */
 
 // =======
 // LAYOUT:
@@ -236,39 +335,39 @@ img {
   }
 }
 
-//.mi-nogutter {
-//  // @todo needs refactoring:
-//  .row {
-//    margin-right:-30px;
-//  }
-//}
-//
-//.mi-no-padding-right {
-//  padding-right:0 !important;
-//}
-//
-//.mi-no-padding-left {
-//  padding-left:0 !important;
-//}
-//
-//.mi-no-padding-leftright {
-//  padding-right:0 !important;
-//  padding-left:0 !important;
-//}
-
-.mi-box {
-  padding:$mi-gutter-height/2 $mi-gutter-width/2;
+.mi-padding-leftright {
+  padding-left: $mi-gutter-width/2;
+  padding-right: $mi-gutter-width/2;
 }
 
-[class^="col-"] > .ce_text {
-  padding:$mi-gutter-height/2 $mi-gutter-width/2;
-  position:relative;
+.mi-padding-top {
+  padding-top: $mi-gutter-height/2;
+}
+
+.mi-nopadding-left {
+  padding-left: 0 !important;
+  & > .ce_text {
+    padding-left: 0 !important;
+  }
+}
+
+.mi-box {
+  padding: $mi-gutter-height/2 $mi-gutter-width/2;
+}
+
+.ce_text {
+  overflow: hidden;
+}
+
+[class^="col-"] > .ce_text, .ce_text[class*="col-"], [class^="col-"] > .ce_image_bg, .ce_image_bg[class*="col-"] {
+  padding: $mi-gutter-height/2 $mi-gutter-width/2;
+  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-
+// Find all ce_text boxes that are on the left side:
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -276,21 +375,21 @@ body {
   color: $web-schwarz;
 }
 
-$header-height:170px;
-$header-height-shrink:80px;
-$header-oben:20px;
-$header-unten:0px;
+$header-height: 170px;
+$header-height-shrink: 80px;
+$header-oben: 20px;
+$header-unten: 0px;
 
 #header {
   //@include devborder(green);
-  height:$header-height;
+  height: $header-height;
   width: 100%;
   background-color: #FFF;
-  padding-top:$header-oben;
+  padding-top: $header-oben;
   margin-bottom: $header-unten;
   .inside {
-    position:relative;
-    margin-top:10px;
+    position: relative;
+    margin-top: 10px;
   }
 
   // border-bottom: 1px solid #e1e1e1;
@@ -302,22 +401,20 @@ $header-unten:0px;
   position: fixed;
 
   &.shrink {
-    background-color:#FFF;
-    height:$header-height-shrink;
+    background-color: #FFF;
+    height: $header-height-shrink;
     .mi-nav-top {
-      margin-top:5px;
+      margin-top: 5px;
     }
   }
 }
 
 #wrapper {
-  margin-top:$header-height;
+  margin-top: $header-height;
 }
 
-
-
 #logo {
-  max-width:270px;
+  max-width: 270px;
   img {
     @extend .img-responsive;
     image-rendering: -webkit-optimize-contrast;
@@ -325,38 +422,37 @@ $header-unten:0px;
 }
 
 .shrink #logo {
-  max-width:310px;
+  max-width: 310px;
 }
 
-
 .mi-nav-top {
-  margin-right:5px;
-  margin-top:95px;
+  margin-right: 5px;
+  margin-top: 95px;
   @extend .bold;
   @extend .text-right;
   a {
-    color:$web-schwarz;
+    color: $web-schwarz;
     &:hover {
-      color:$ecc-rot;
+      color: $ecc-rot;
       text-decoration: none;
     }
-    padding-left:20px;
+    padding-left: 20px;
   }
   span {
-    padding-left:20px;
+    padding-left: 20px;
   }
   a.last, span.last {
-    padding-left:60px;
+    padding-left: 60px;
   }
   a, span {
-    font-size:16px;
+    font-size: 16px;
     @extend .bold;
   }
   .active {
-    color:$ecc-rot;
+    color: $ecc-rot;
   }
   ul {
-    float:right;
+    float: right;
     @include horizontal-list-container;
     & > li {
       @include horizontal-list-item;
@@ -368,25 +464,25 @@ $header-unten:0px;
   @extend .bold;
   @extend .text-right;
   a {
-    color:$web-schwarz;
+    color: $web-schwarz;
     &:hover {
-      color:$ecc-rot;
+      color: $ecc-rot;
       text-decoration: none;
     }
-    padding-left:20px;
+    padding-left: 20px;
   }
   span {
-    padding-left:20px;
+    padding-left: 20px;
   }
   a, span {
-    font-size:16px;
+    font-size: 16px;
     @extend .bold;
   }
   .active {
-    color:$ecc-rot;
+    color: $ecc-rot;
   }
   ul {
-    float:right;
+    float: right;
     @include horizontal-list-container;
     & > li {
       @include horizontal-list-item;
@@ -396,24 +492,15 @@ $header-unten:0px;
 
 #footer {
   .container {
-    padding:20px 0;
-    background-color:$ecc-grau;
+    padding: 20px 0;
+    background-color: $ecc-grau;
     &.inside {
-      padding-right:10px;
+      padding-right: 10px;
     }
   }
 }
 
 #main {
-  //ul {
-  //  margin-left: 0;
-  //  padding-left: 1em;
-  //  // text-indent: -1em;
-  //  list-style-type: disc;
-  //  li {
-  //
-  //  }
-  //}
   ul {
     list-style: none;
     margin-left: 0;
@@ -423,26 +510,26 @@ $header-unten:0px;
     display: inline-block;
     //content: "\2014\a0";
     content: "-";
-    font-weight:300;
+    font-weight: 300;
     width: 1em;
     margin-left: -1em;
   }
   .main7list {
-    font-size:14px;
+    font-size: 14px;
     @extend .bold;
     ul {
-      list-style:none;
+      list-style: none;
       margin-left: 0;
-      padding-left:0;
+      padding-left: 0;
       .fa {
-        padding:0 3px;
+        padding: 0 3px;
       }
       & > li {
-        margin-bottom:10px;
+        margin-bottom: 10px;
         &:before {
           display: none;
           content: "";
-          font-weight:300;
+          font-weight: 300;
           width: 1em;
           margin-left: 0;
         }
@@ -451,47 +538,24 @@ $header-unten:0px;
   }
 }
 
-.ce_text {
-  overflow:hidden;
-}
-
-.mi-larger-text {
-  font-size:16px;
-}
-
-.mi-large-text {
-  font-size:28px;
-  line-height:1.3em;
-  @extend .semi-bold;
-}
-
-//.mi-contentbox {
-//  padding-top:10px;
-//}
-//// @todo: variable!
-//.mi-contentbox-leftright {
-//  padding-left:15px;
-//  padding-right:15px;
-//}
-
 .mi-margin-top {
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 @mixin textforhero($font-size:110px, $line-height:1.3em, $font-color:$white, $margin:100px) {
-  margin-top:$margin;
-  margin-bottom:$margin;
+  margin-top: $margin;
+  margin-bottom: $margin;
   span {
     margin-left: -10px;
   }
   line-height: $line-height;
-  font-size:$font-size;
+  font-size: $font-size;
   font-weight: 700;
   color: $font-color;
 }
 
 .kompetenz {
-  background: url('/files/frame/lebendigkeit_kompetenz_wachstum.jpg') no-repeat center;
+  background: url('/files/content/home/sinn_freude_wirtschaftlichkeit.jpg') no-repeat center;
   background-size: cover;
   h1 {
     @include textforhero();
@@ -501,7 +565,7 @@ $header-unten:0px;
 .arbeitenmitsinn {
   background: url('/files/frame/Riesenrad_CF.jpg') no-repeat;
   background-size: cover;
-  background-position:-100px 0;
+  background-position: -100px 0;
   h1 {
     @include textforhero();
   }
@@ -516,88 +580,61 @@ $header-unten:0px;
   }
 }
 
-.sinnhaftzuleben {
-  position:relative;
-  background: url('/files/content/wozu/pusteblume_a_sto.jpg') no-repeat center;
-  background-size: cover;
-  // background-position:-100px 0
-
-  h3 {
-    @include textforhero(28px, 1.4em, $white, 10px);
-  }
-}
-
 .mi-bgimage-in-text {
-    position:relative;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .mi-bgimage-bottom {
-    background-position: bottom !important;
+  background-position: bottom !important;
+}
+
+.mi-bgimage-top {
+  background-position: top !important;
 }
 
 .beruehrendes {
-  position:relative;
+  position: relative;
   background: url('/files/content/wozu/Herzlicht_Tina90.jpg') no-repeat center;
   background-size: cover;
   // background-position:-100px 0
 
   h3 {
     @include textforhero(28px, 1.4em, $white, 30px);
-    margin-top:270px;
+    margin-top: 270px;
   }
 }
 
 .herzstift {
-  position:relative;
+  position: relative;
   background: url('/files/content/wozu/Herz_Stift.jpg') no-repeat center;
   background-size: cover;
   // background-position:-100px 0
   h3 {
     @include textforhero(24px, 1.4em, $white, 30px);
-    margin-top:270px;
+    margin-top: 270px;
   }
 }
-
-.pusteblume {
-  position:relative;
-  background: url('/files/content/wozu/pusteblume_a_sto.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 
 .mi-height-1 {
-  height:$mi-height;
+  height: $mi-height;
 }
+
 .mi-height-2 {
-  height:$mi-height * 2;
+  height: $mi-height * 2;
 }
+
 .mi-height-3 {
-  height:$mi-height * 3;
+  height: $mi-height * 3;
 }
+
 .mi-height-4 {
-  height:$mi-height * 4;
+  height: $mi-height * 4;
 }
 
 
-
-
-
-
-.mi-shine img {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
-  transition: all 0.5s ease;
-  &:hover {
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    filter: grayscale(0%);
-  }
-}
 
 //.herzkrone {
 //  background: url('/files/content/home/Herzkrone_marshi.jpg') no-repeat right;
@@ -606,7 +643,7 @@ $header-unten:0px;
 //}
 
 .mi-main7-news {
-  padding:15px 30px;
+  padding: 15px 30px;
 }
 
 .mi-neue-ufer {

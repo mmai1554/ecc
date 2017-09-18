@@ -142,7 +142,7 @@
 <?php $this->sections( 'bottom' ); ?>
 <?php $this->endblock(); ?>
 
-<?= $this->mootools ?>
+<?php  $this->mootools ?>
 
 </body>
 </html>

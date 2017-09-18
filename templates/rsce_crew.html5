@@ -1,17 +1,10 @@
-<div class="<?= $this->class ?> block"<?php echo $this->cssID ?>>
-        <div class="image">
-            <div class="mii-media">
-                <a href="mailto:<?php echo $this->email ?>" title="<?= $this->email ?>">
-					<?php if ( $image = $this->arrData['getImageObject']( $this->image ) ): ?>
-                        <img src="<?php echo $image->src ?>" alt="<?php echo $image->alt ?: $this->name ?>"<?php echo $image->imgSize ?>>
-					<?php endif ?>
-                    <div class="crew-name"><p>
-							<?= $this->name ?><br>
-                        </p>
-                    </div>
-                </a>
-            </div>
+<div class="<?= $this->class ?> block mi-crewmember"<?php echo $this->cssID ?>>
+    <a href="mailto:<?php echo $this->email ?>" title="<?= $this->email ?>">
+		<?php if ( $image = $this->arrData['getImageObject']( $this->image ) ): ?>
+            <img src="<?php echo $image->src ?>" alt="<?php echo $image->alt ?: $this->name ?>"<?php echo $image->imgSize ?>>
+		<?php endif ?>
+        <div class="overlay">
+            <div class="name"><?= $this->name ?></div>
         </div>
+    </a>
 </div>
-
-

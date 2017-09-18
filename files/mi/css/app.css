@@ -2217,6 +2217,7 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
   src: local("Open Sans Bold"), local("OpenSans-Bold"), url("../fonts/open-sans-v14-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v14-latin-700.woff2") format("woff2"), url("../fonts/open-sans-v14-latin-700.woff") format("woff"), url("../fonts/open-sans-v14-latin-700.ttf") format("truetype"), url("../fonts/open-sans-v14-latin-700.svg#OpenSans") format("svg");
   /* Legacy iOS */ }
 @font-face { font-family: 'FontAwesome'; src: url("../fonts/fontawesome-webfont.eot?v=4.7.0"); src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg"); font-weight: normal; font-style: normal; }
+/** use transform-style: preserve-3d; on parent! */
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -3649,24 +3650,14 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .sr-only-focusable:active, .sr-only-focusable:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
 
-.crew-name { display: block; position: absolute; bottom: 0; width: 100%; letter-spacing: 0; background-color: rgba(255, 255, 255, 0.6); }
-.crew-name p, .crew-name span { font-size: 12px; margin: 0; line-height: 1em; padding: 3px 5px; color: #1e1e1e; }
-
-.mi-media { display: inline-block; position: relative; vertical-align: top; line-height: 0; margin: 0; padding: 0; }
-
-.mi-media__body { background: rgba(71, 71, 71, 0.8); bottom: 0; color: white; font-size: 1em; left: 0; opacity: 0; overflow: hidden; padding: 3.75em 3em; position: absolute; text-align: center; top: 0; right: 0; -webkit-transition: 0.6s; transition: 0.6s; }
-.mi-media__body:hover { opacity: 1; }
-.mi-media__body:after, .mi-media__body:before { bottom: 1em; content: ''; left: 1em; opacity: 0; position: absolute; right: 1em; top: 1em; -webkit-transform: scale(1.5); -ms-transform: scale(1.5); transform: scale(1.5); -webkit-transition: 0.6s 0.2s; transition: 0.6s 0.2s; }
-.mi-media__body:before { border-bottom: none; border-top: none; left: 2em; right: 2em; }
-.mi-media__body:after { border-left: none; border-right: none; bottom: 2em; top: 2em; }
-.mi-media__body:hover:after, .mi-media__body:hover:before { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
-.mi-media__body .mailicon { margin-top: 30px; font-size: 100px; color: rgba(255, 255, 255, 0.9); line-height: 0; }
-.mi-media__body h2 { margin-top: 0; }
-.mi-media__body p { margin-bottom: 1.5em; }
+.mi-crewmember { position: relative; }
+.mi-crewmember .overlay { position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, 0.7); overflow: hidden; width: 100%; height: 0; transition: .2s ease; }
+.mi-crewmember:hover .overlay { height: 10%; }
+.mi-crewmember .name { white-space: nowrap; color: #1e1e1e; font-size: 12px; position: absolute; overflow: hidden; padding: 3px 5px; }
 
 .normal { font-weight: 400; font-style: normal; }
 
-.semi-bold, body, .mi-large-text { font-weight: 600; font-style: normal; }
+.semi-bold, .mi-large-text, .mi-textsize-3, body { font-weight: 600; font-style: normal; }
 
 .bold, h4, .mi-nav-top, .mi-nav-top a, .mi-nav-top span, .mi-nav-footer, .mi-nav-footer a, .mi-nav-footer span, #main .main7list { font-weight: 700; font-style: normal; }
 
@@ -3694,6 +3685,15 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .row-vertical-align { display: flex; flex-direction: row; }
 .row-vertical-align > [class^="col-"], .row-vertical-align > [class*=" col-"] { display: flex; align-items: center; }
+
+.mi-shine .mi-box { padding: 0; }
+.mi-shine .mi-box img { max-width: 100px; }
+.mi-shine .ce_gallery { transform-style: preserve-3d; }
+
+.mi-shine img { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); transition: all 0.5s ease; }
+.mi-shine img:hover { -webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); filter: grayscale(0%); }
+
+.vertical-align-parent .vertical-align-child { position: relative; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
 
 .mi-align-height .row { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; flex-wrap: wrap; }
 .mi-align-height .row > [class*='col-'] { display: flex; flex-direction: column; }
@@ -3724,18 +3724,44 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 h1, .h1, h2, .h2, h3, .h3 { margin-top: 0; margin-bottom: 10px; }
 
-h3 { font-size: 28px; line-height: 1.4em; }
-
-h4 { font-size: 14px; font-weight: bold; margin-bottom: 10px; line-height: 1.4em; }
+h1, .h1, h3, .h3 { font-size: 28px; line-height: 1.4em; }
 
 h4 { font-size: 14px; margin-top: 0px; margin-bottom: 2px; line-height: 1.1em; }
 
+.mi-larger-text, .mi-textsize-2 { font-size: 16px; }
+
+.mi-large-text, .mi-textsize-3 { font-size: 28px; line-height: 1.3em; }
+
+.mi-textsize-4 { font-size: 90px; line-height: 1.2em; }
+.mi-textsize-4 h1, .mi-textsize-4 h2, .mi-textsize-4 h3, .mi-textsize-4 h4, .mi-textsize-4 p { line-height: 1.2em; font-size: 90px; }
+
+.mi-toggler { cursor: pointer; }
+
+.mi-twistie, .mi-twistie-up, .mi-twistie-right { position: relative; }
+.mi-twistie:hover, .mi-twistie-up:hover, .mi-twistie-right:hover { text-decoration: none; }
+.mi-twistie:after, .mi-twistie-up:after, .mi-twistie-right:after { content: "\f0d7"; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: none !important; color: #a2032f; font-size: 60px; line-height: 1em; float: left; margin-top: -20px; }
+
+.mi-twistie-up:after { content: "\f0d8"; }
+
+.mi-twistie-right:after { content: "\f0da"; }
+
+/*
+ */
 .mi-link-neutral a { color: #1e1e1e; }
 .mi-link-neutral a:hover { cursor: pointer; }
 
+.mi-padding-leftright, .mi-shine .ce_gallery [class*=" col-"] { padding-left: 15px; padding-right: 15px; }
+
+.mi-padding-top { padding-top: 10px; }
+
+.mi-nopadding-left { padding-left: 0 !important; }
+.mi-nopadding-left > .ce_text { padding-left: 0 !important; }
+
 .mi-box { padding: 10px 15px; }
 
-[class^="col-"] > .ce_text { padding: 10px 15px; position: relative; background-repeat: no-repeat; background-position: center; background-size: cover; }
+.ce_text { overflow: hidden; }
+
+[class^="col-"] > .ce_text, .ce_text[class*="col-"], [class^="col-"] > .ce_image_bg, .ce_image_bg[class*="col-"] { padding: 10px 15px; position: relative; background-repeat: no-repeat; background-position: center; background-size: cover; }
 
 body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 
@@ -3786,15 +3812,9 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 #main .main7list ul > li { margin-bottom: 10px; }
 #main .main7list ul > li:before { display: none; content: ""; font-weight: 300; width: 1em; margin-left: 0; }
 
-.ce_text { overflow: hidden; }
-
-.mi-larger-text { font-size: 16px; }
-
-.mi-large-text { font-size: 28px; line-height: 1.3em; }
-
 .mi-margin-top { margin-top: 30px; }
 
-.kompetenz { background: url("/files/frame/lebendigkeit_kompetenz_wachstum.jpg") no-repeat center; background-size: cover; }
+.kompetenz { background: url("/files/content/home/sinn_freude_wirtschaftlichkeit.jpg") no-repeat center; background-size: cover; }
 .kompetenz h1 { margin-top: 100px; margin-bottom: 100px; line-height: 1.3em; font-size: 110px; font-weight: 700; color: #FFFFFF; }
 .kompetenz h1 span { margin-left: -10px; }
 
@@ -3806,13 +3826,11 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .fuehrenneuezeit h3 { margin-top: 80px; margin-bottom: 80px; line-height: 1.4em; font-size: 90px; font-weight: 700; color: #FFFFFF; }
 .fuehrenneuezeit h3 span { margin-left: -10px; }
 
-.sinnhaftzuleben { position: relative; background: url("/files/content/wozu/pusteblume_a_sto.jpg") no-repeat center; background-size: cover; }
-.sinnhaftzuleben h3 { margin-top: 10px; margin-bottom: 10px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; }
-.sinnhaftzuleben h3 span { margin-left: -10px; }
-
 .mi-bgimage-in-text { position: relative; background-repeat: no-repeat; background-position: center; background-size: cover; }
 
 .mi-bgimage-bottom { background-position: bottom !important; }
+
+.mi-bgimage-top { background-position: top !important; }
 
 .beruehrendes { position: relative; background: url("/files/content/wozu/Herzlicht_Tina90.jpg") no-repeat center; background-size: cover; }
 .beruehrendes h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.4em; font-size: 28px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
@@ -3822,8 +3840,6 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .herzstift h3 { margin-top: 30px; margin-bottom: 30px; line-height: 1.4em; font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 270px; }
 .herzstift h3 span { margin-left: -10px; }
 
-.pusteblume { position: relative; background: url("/files/content/wozu/pusteblume_a_sto.jpg") no-repeat; background-size: cover; background-position: center; }
-
 .mi-height-1 { height: 190px; }
 
 .mi-height-2 { height: 380px; }
@@ -3831,9 +3847,6 @@ body { font-family: "Open Sans", sans-serif; color: #1e1e1e; }
 .mi-height-3 { height: 570px; }
 
 .mi-height-4 { height: 760px; }
-
-.mi-shine img { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); filter: grayscale(100%); transition: all 0.5s ease; }
-.mi-shine img:hover { -webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); filter: grayscale(0%); }
 
 .mi-main7-news { padding: 15px 30px; }
 

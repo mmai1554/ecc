@@ -26,4 +26,5 @@ $GLOBALS['TL_CONFIG']['gdMaxImgHeight'] = 5000;
 $GLOBALS['TL_CONFIG']['maxFileSize'] = 202048000;
 $GLOBALS['TL_CONFIG']['imageWidth'] = 3000;
 $GLOBALS['TL_CONFIG']['imageHeight'] = 3000;
+$GLOBALS['TL_CONFIG']['rewriteURL'] = true;
 ### INSTALL SCRIPT STOP ###
