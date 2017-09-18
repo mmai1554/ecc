@@ -3709,6 +3709,7 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 .mi-more-space-between-rows .row { margin-bottom: 40px; }
 
 .bg-red, .mi-bg-red { background-color: #a2032f; color: #FFFFFF; }
+.bg-red a, .bg-red a:hover, .mi-bg-red a, .mi-bg-red a:hover { color: #FFFFFF; }
 
 .mi-textcolor-red { color: #a2032f; }
 

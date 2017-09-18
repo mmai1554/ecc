@@ -190,6 +190,9 @@ $ecc-grau: $ecc-grau1;
 .bg-red, .mi-bg-red {
   background-color: $ecc-rot-dunkler;
   color: $white;
+  a, a:hover {
+    color:$white;
+  }
 }
 
 .mi-textcolor-red {
