@@ -390,7 +390,7 @@ $header-unten: 0px;
   background-color: #FFF;
   padding-top: $header-oben;
   margin-bottom: $header-unten;
-  .inside {
+  & > .inside {
     position: relative;
     margin-top: 10px;
   }
