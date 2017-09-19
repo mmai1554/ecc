@@ -348,9 +348,11 @@ img {
 }
 
 .mi-nopadding-left {
-  padding-left: 0 !important;
-  & > .ce_text {
+  @include bp(desktop) {
     padding-left: 0 !important;
+    & > .ce_text {
+      padding-left: 0 !important;
+    }
   }
 }
 
@@ -386,6 +388,10 @@ $header-unten: 0px;
 #header {
   //@include devborder(green);
   height: $header-height;
+  @include bp(mobile) {
+    padding:5px;
+    height:auto;
+  }
   width: 100%;
   background-color: #FFF;
   padding-top: $header-oben;
@@ -406,6 +412,9 @@ $header-unten: 0px;
   &.shrink {
     background-color: #FFF;
     height: $header-height-shrink;
+    @include bp(mobile) {
+      height:auto;
+    }
     .mi-nav-top {
       margin-top: 5px;
     }
@@ -422,6 +431,11 @@ $header-unten: 0px;
     @extend .img-responsive;
     image-rendering: -webkit-optimize-contrast;
   }
+  @include bp(mobile) {
+    max-width:320px;
+    margin:0 auto;
+    text-align:center;
+  }
 }
 
 .shrink #logo {
@@ -431,6 +445,9 @@ $header-unten: 0px;
 .mi-nav-top {
   margin-right: 5px;
   margin-top: 95px;
+  @include bp(mobile) {
+    margin-top:40px;
+  }
   @extend .bold;
   @extend .text-right;
   a {
@@ -443,12 +460,21 @@ $header-unten: 0px;
       text-decoration: none;
     }
     padding-left: 20px;
+    @include bp(mobile) {
+      padding-left:10px;
+    }
   }
   span {
     padding-left: 20px;
+    @include bp(mobile) {
+      padding-left:10px;
+    }
   }
   a.last, span.last {
     padding-left: 60px;
+    @include bp(mobile) {
+      padding-left:20px;
+    }
   }
   a, span {
     font-size: 16px;
@@ -459,6 +485,9 @@ $header-unten: 0px;
   }
   ul {
     float: right;
+    @include bp(mobile) {
+      float:none;
+    }
     @include horizontal-list-container;
     & > li {
       @include horizontal-list-item;
@@ -564,7 +593,20 @@ $header-unten: 0px;
   background: url('/files/content/home/sinn_freude_wirtschaftlichkeit.jpg') no-repeat center;
   background-size: cover;
   h1 {
-    @include textforhero();
+    margin-top: 100px;
+    margin-bottom: 100px;
+    span {
+      margin-left: -10px;
+    }
+    line-height: 1.3em;
+    font-size: 110px;
+    font-weight: 700;
+    color: $white;
+    @include bp(mobile) {
+      margin-top:80px;
+      margin-bottom:50px;
+      font-size:33px;
+    }
   }
 }
 
