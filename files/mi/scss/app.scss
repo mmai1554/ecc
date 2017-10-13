@@ -246,6 +246,13 @@ h4 {
   line-height: 1.1em;
 }
 
+.mi-aktuelles {
+  h4 {
+    font-size:14px;
+    line-height: 1.4281em;
+  }
+}
+
 .mi-larger-text, .mi-textsize-2 {
   font-size: 16px;
 }
@@ -470,7 +477,7 @@ $header-unten: 0px;
       padding-left:10px;
     }
   }
-  a.last, span.last {
+  a.kunden, span.kunden {
     padding-left: 60px;
     @include bp(mobile) {
       padding-left:20px;
