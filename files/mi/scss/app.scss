@@ -106,6 +106,10 @@ $ecc-grau: $ecc-grau1;
   }
 }
 
+.mi-logo {
+
+}
+
 .mi-shine {
   .row {
     margin-bottom: $mi-gutter-height * 2;
@@ -153,23 +157,39 @@ $ecc-grau: $ecc-grau1;
   }
 }
 
-//.mi-align-height {
-//  .row {
-//    display: -webkit-box;
-//    display: -webkit-flex;
-//    display: -ms-flexbox;
-//    display: flex;
-//    flex-wrap: wrap;
-//  }
-//  .row > [class*='col-'] {
-//    display: flex;
-//    flex-direction: column;
-//  }
-//  .row > [class*='col-'] .inside {
-//    display: flex;
-//    flex-direction: column;
-//  }
-//}
+
+.mi-align-col-heights {
+  & > .row {
+    display: table;
+  }
+  [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+  // when using col heights as table cell, min-height is not working properly and has to be replaced with height:
+  @for $i from 1 through 4 {
+    .mi-height-#{$i} {
+      @include bp(laptop) {
+        height: $mi-height * $i;
+      }
+    }
+    .mi-xs-height-#{$i} {
+      @include bp(mobile) {
+        height: $mi-height * $i;
+      }
+      @include bp(tablet) {
+        height: $mi-height * $i;
+      }
+    }
+    .mi-sm-height-#{$i} {
+      @include bp(tablet) {
+        height: $mi-height * $i;
+      }
+    }
+  }
+}
+
 
 .mi-align-content-bottom {
   display: -webkit-box;
@@ -269,6 +289,12 @@ h4 {
   h1, h2, h3, h4, p {
     line-height: 1.2em;
     font-size: 90px;
+    @include bp(mobile) {
+      font-size:33px;
+    }
+    @include bp(tablet) {
+      font-size:60px;
+    }
   }
 }
 
@@ -357,11 +383,36 @@ img {
 .mi-nopadding-left {
   @include bp(desktop) {
     padding-left: 0 !important;
-    & > .ce_text {
+    & > .ce_text, & > .ce_image {
       padding-left: 0 !important;
     }
   }
 }
+
+.mi-sm-nopadding-left {
+  @include bp(tablet) {
+    padding-left: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.mi-nopadding {
+  @include bp(desktop) {
+    padding: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding: 0 !important;
+    }
+  }
+  @include bp(tablet) {
+    padding: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding: 0 !important;
+    }
+  }
+}
+
 
 .mi-box {
   padding: $mi-gutter-height/2 $mi-gutter-width/2;
@@ -369,9 +420,14 @@ img {
 
 .ce_text {
   overflow: hidden;
+  @include bp(mobile) {
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
 }
 
-[class^="col-"] > .ce_text, .ce_text[class*="col-"], [class^="col-"] > .ce_image_bg, .ce_image_bg[class*="col-"] {
+[class^="col-"] > .ce_text, .ce_text[class*="col-"], [class^="col-"] > .ce_image_bg, .ce_image_bg[class*="col-"], [class^="col-"] > .ce_image, .ce_image[class*="col-"]{
   padding: $mi-gutter-height/2 $mi-gutter-width/2;
   position: relative;
   background-repeat: no-repeat;
@@ -388,33 +444,36 @@ body {
 }
 
 $header-height: 170px;
+$header-height-mobile:220px; // navigation below logo
 $header-height-shrink: 80px;
-$header-oben: 20px;
-$header-unten: 0px;
+$header-top: 20px;
+$header-bottom: 0px;
 
 #header {
-  //@include devborder(green);
+
+  overflow:hidden;
   height: $header-height;
-  @include bp(mobile) {
-    padding:5px;
-    height:auto;
-  }
   width: 100%;
   background-color: #FFF;
-  padding-top: $header-oben;
-  margin-bottom: $header-unten;
+  padding-top: $header-top;
+  margin-bottom: $header-bottom;
+  z-index: 9999;
+  top: 0;
+  position: fixed;
+
+  @include bp(mobile) {
+    padding:5px;
+    height:$header-height-mobile;
+  }
+
   & > .inside {
     position: relative;
     margin-top: 10px;
   }
 
-  // border-bottom: 1px solid #e1e1e1;
-  /* animation magic */
+  // animation:
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
-  z-index: 9999;
-  top: 0;
-  position: fixed;
 
   &.shrink {
     background-color: #FFF;
@@ -428,12 +487,16 @@ $header-unten: 0px;
   }
 }
 
-#wrapper {
+#container {
   margin-top: $header-height;
+  @include bp(mobile) {
+    margin-top:$header-height-mobile;
+  }
 }
 
 #logo {
   max-width: 270px;
+  padding:0;
   img {
     @extend .img-responsive;
     image-rendering: -webkit-optimize-contrast;
@@ -453,7 +516,8 @@ $header-unten: 0px;
   margin-right: 5px;
   margin-top: 95px;
   @include bp(mobile) {
-    margin-top:40px;
+    margin-top:30px;
+    text-align:center;
   }
   @extend .bold;
   @extend .text-right;
@@ -480,12 +544,18 @@ $header-unten: 0px;
   a.kunden, span.kunden {
     padding-left: 60px;
     @include bp(mobile) {
-      padding-left:20px;
+      padding-left:10px;
     }
   }
   a, span {
     font-size: 16px;
     @extend .bold;
+    @include bp(mobile) {
+      font-size:11px;
+    }
+    @include bp(tablet) {
+      font-size:13px;
+    }
   }
   .active {
     color: $ecc-rot;
@@ -494,10 +564,15 @@ $header-unten: 0px;
     float: right;
     @include bp(mobile) {
       float:none;
+      display:inline;
     }
     @include horizontal-list-container;
     & > li {
       @include horizontal-list-item;
+      @include bp(mobile) {
+        float:none;
+        display:inline;
+      }
     }
   }
 }
@@ -594,6 +669,7 @@ $header-unten: 0px;
   font-size: $font-size;
   font-weight: 700;
   color: $font-color;
+
 }
 
 .kompetenz {
@@ -614,6 +690,24 @@ $header-unten: 0px;
       margin-bottom:50px;
       font-size:33px;
     }
+    @include bp(tablet) {
+      font-size:70px;
+    }
+    @include bp(special) {
+      font-size:7em;
+    }
+  }
+}
+
+.fuehrenneuezeit {
+  min-height:$mi-height * 3;
+  @extend .mi-textcolor-white;
+  @extend .mi-textsize-4;
+  @include bp(mobile) {
+    min-height: $mi-height * 1;
+  }
+  @include bp(tablet) {
+    min-height: $mi-height * 3;
   }
 }
 
@@ -621,19 +715,33 @@ $header-unten: 0px;
   background: url('/files/frame/Riesenrad_CF.jpg') no-repeat;
   background-size: cover;
   background-position: -100px 0;
+  @include bp(tablet) {
+    background-position:bottom;
+  }
   h1 {
     @include textforhero();
+    @include bp(mobile) {
+      margin-top:80px;
+      margin-bottom:50px;
+      font-size:33px;
+    }
+    @include bp(mobile) {
+      margin-top:50px;
+      margin-bottom:50px;
+      font-size:50px;
+    }
   }
 }
 
-.fuehrenneuezeit {
-  background: url('/files/content/corporate_flow/M7_Akademie_Himmel.jpg') no-repeat center;
-  background-size: cover;
-  // background-position:-100px 0;
-  h3 {
-    @include textforhero(90px, 1.4em, $white, 80px);
+.sinnhaftleben {
+  @include bp(tablet) {
+    background-position:bottom !important;
+  }
+  @include bp(mobile) {
+    background-position:bottom !important;
   }
 }
+
 
 .mi-bgimage-in-text {
   position: relative;
@@ -666,41 +774,32 @@ $header-unten: 0px;
   position: relative;
   background: url('/files/content/wozu/Herz_Stift.jpg') no-repeat center;
   background-size: cover;
-  // background-position:-100px 0
   h3 {
     @include textforhero(24px, 1.4em, $white, 30px);
     margin-top: 270px;
   }
 }
 
-.mi-height-1 {
-  height: $mi-height;
+@for $i from 1 through 4 {
+  .mi-height-#{$i} {
+    @include bp(desktop) {
+      min-height: $mi-height * $i;
+    }
+  }
+  .mi-xs-height-#{$i} {
+    @include bp(mobile) {
+      min-height: $mi-height * $i;
+    }
+  }
+  .mi-sm-height-#{$i} {
+    @include bp(tablet) {
+      min-height: $mi-height * $i;
+    }
+  }
 }
-
-.mi-height-2 {
-  height: $mi-height * 2;
-}
-
-.mi-height-3 {
-  height: $mi-height * 3;
-}
-
-.mi-height-4 {
-  height: $mi-height * 4;
-}
-
-//.herzkrone {
-//  background: url('/files/content/home/Herzkrone_marshi.jpg') no-repeat right;
-//  background-size: cover;
-//  min-height:350px;
-//}
 
 .mi-main7-news {
   padding: 15px 30px;
-}
-
-.mi-neue-ufer {
-  // margin-top:150px;
 }
 
 

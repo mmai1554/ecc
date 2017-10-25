@@ -1,4 +1,4 @@
-<div class="container mi-align-height">
+<div class="container">
     <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ( $this->style ): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
 		<?php if ( $this->printable ): ?>

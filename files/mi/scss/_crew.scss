@@ -1,5 +1,11 @@
 .mi-crewmember {
   position: relative;
+  @include bp(mobile) {
+    padding-bottom:10px;
+    img {
+      margin:0 auto;
+    }
+  }
   .overlay {
     position: absolute;
     bottom: 0;
@@ -10,6 +16,17 @@
     width: 100%;
     height: 0;
     transition: .2s ease;
+    @include bp(mobile) {
+      position:relative;
+      bottom:auto;
+      left:auto;
+      right:auto;
+      height:25px;
+      margin:0 auto;
+    }
+    @include bp(tablet) {
+      // background-color:#CCC;
+    }
   }
   &:hover .overlay {
     height:25px;
@@ -23,6 +40,10 @@
     overflow: hidden;
     margin:0 5px 10px 5px;
     // border:1px solid red;
+    @include bp(mobile) {
+      width:100%;
+      text-align:center;
+    }
   }
 }
 
