@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="<?= $this->language ?>"<?php if ( $this->isRTL ): ?> dir="rtl"<?php endif; ?>>
+<head>
+
+	<?php $this->block( 'head' ); ?>
+    <meta charset="<?= $this->charset ?>">
+    <title><?= $this->title ?></title>
+    <base href="<?= $this->base ?>">
+
+	<?php $this->block( 'meta' ); ?>
+    <meta name="robots" content="<?= $this->robots ?>">
+    <meta name="description" content="<?= $this->description ?>">
+    <meta name="keywords" content="<?= $this->keywords ?>">
+    <meta name="generator" content="Contao Open Source CMS">
+	<?php $this->endblock(); ?>
+
+    <link rel="stylesheet" href="/files/mi/css/app.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" href="/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/favicon-144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<?= $this->viewport ?>
+	<?= $this->framework ?>
+	<?= $this->stylesheets ?>
+	<?= $this->mooScripts ?>
+    <script src="/files/mi/js/bootstrap.min.js"></script>
+    <script src="/files/mi/js/app.js"></script>
+	<?= $this->head ?>
+
+
+	<?php $this->block( 'html5shiv' ); ?>
+    <!--[if lt IE 9]>
+    <script src="<?= TL_ASSETS_URL ?>assets/html5shiv/<?= $GLOBALS['TL_ASSETS']['HTML5SHIV'] ?>/html5shiv-printshiv.min.js"></script><![endif]-->
+	<?php $this->endblock(); ?>
+	<?php $this->endblock(); ?>
+
+</head>
+<body id="top" class="{{ua::class}}<?php if ( $this->class ) {
+	echo ' ' . $this->class;
+} ?>"<?php if ( $this->onload ): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
+
+<?php $this->block( 'body' ); ?>
+<?php $this->sections( 'top' ); ?>
+
+<div id="wrapper">
+
+	<?php $this->block( 'header' ); ?>
+
+    <header id="header">
+        <div class="inside">
+            <div class="container mi-no-padding-leftright">
+                <div class="row">
+                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                        {{insert_content::106}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <?php $this->endblock(); ?>
+
+	<?php $this->sections( 'before' ); ?>
+
+	<?php $this->block( 'container' ); ?>
+    <div id="container">
+
+		<?php $this->block( 'main' ); ?>
+        <div id="main">
+            <div class="inside">
+				<?= $this->main ?>
+            </div>
+			<?php $this->sections( 'main' ); ?>
+        </div>
+		<?php $this->endblock(); ?>
+
+		<?php $this->block( 'left' ); ?>
+		<?php if ( $this->left ): ?>
+            <aside id="left">
+                <div class="inside">
+					<?= $this->left ?>
+                </div>
+            </aside>
+		<?php endif; ?>
+		<?php $this->endblock(); ?>
+
+		<?php $this->block( 'right' ); ?>
+		<?php if ( $this->right ): ?>
+            <aside id="right">
+                <div class="inside">
+					<?= $this->right ?>
+                </div>
+            </aside>
+		<?php endif; ?>
+		<?php $this->endblock(); ?>
+
+    </div>
+	<?php $this->endblock(); ?>
+
+	<?php $this->sections( 'after' ); ?>
+
+	<?php $this->block( 'footer' ); ?>
+	<?php if ( $this->footer ): ?>
+        <footer id="footer">
+            <div class="inside container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="center-block">
+						<?= $this->footer ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	<?php endif; ?>
+	<?php $this->endblock(); ?>
+
+</div>
+
+<?php $this->sections( 'bottom' ); ?>
+<?php $this->endblock(); ?>
+
+<?php  $this->mootools ?>
+<?php if (strpos($_SERVER['HTTP_HOST'],'dev') === false): ?>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setCookieDomain", "*.e-c-crew.de"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//pwk.mai-internet.de/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+<?php endif; ?>
+
+</body>
+</html>

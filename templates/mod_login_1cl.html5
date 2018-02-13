@@ -1,0 +1,47 @@
+<!-- indexer::stop -->
+
+
+<div class="<?= $this->class ?> one_column tableless login block"<?= $this->cssID ?><?php if ( $this->style ): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+	<?php if ( $this->headline ): ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+<?php endif; ?>
+
+<form<?php if ( $this->action ): ?> action="<?= $this->action ?>"<?php endif; ?> id="tl_login" method="post">
+    <div class="formbody">
+		<?php if ( $this->message ): ?>
+            <div class="alert alert-danger" role="alert">
+                <p class="error"><?= $this->message ?></p>
+            </div>
+		<?php endif; ?>
+        <input type="hidden" name="FORM_SUBMIT" value="tl_login">
+        <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+
+        <div class="form-group">
+            <label for="username"><?= $this->username ?></label>
+            <input type="text" name="username" id="username" placeholder="<?= $this->username ?>" class="text form-control" value="<?= $this->value ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="password"><?= $this->password ?></label>
+            <input type="password" name="password" id="password" class="text password form-control" value="">
+        </div>
+
+		<?php if ( $this->autologin ): ?>
+            <div class="checkbox_container checkbox">
+                <label>
+                    <input type="checkbox" name="autologin" id="autologin" value="1">
+					<?= $this->autoLabel ?>
+                </label>
+            </div>
+		<?php endif; ?>
+
+        <div class="submit_container">
+            <input type="submit" class="submit btn btn-default" value="<?= $this->slabel ?>">
+        </div>
+
+    </div>
+</form>
+
+</div>
+<!-- indexer::continue -->
