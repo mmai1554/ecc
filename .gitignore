@@ -21,7 +21,7 @@ nbproject/
 /system/config/dcaconfig.php
 /system/config/initconfig.php
 /system/config/langconfig.php
-# /system/config/localconfig.php
+/system/config/localconfig.php
 /system/config/pathconfig.php
 /system/cron/cron.txt
 /system/logs/*
@@ -36,4 +36,7 @@ nbproject/
 !/assets/images/*/index.html
 !/assets/js/index.html
 /files/mi/scss/.sass-cache/
+/files/memberarea/
+/files/content/
+/files/icomoon/
 *.xlf
