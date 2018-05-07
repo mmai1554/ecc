@@ -840,10 +840,23 @@ img.mime_icon {
   }
 }
 
+.mi-datatable {
+  td {
+    padding:5px 10px 5px 0;
+  }
+}
 
-
-
-
-
-
+.mi-videowrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
 
