@@ -1,0 +1,663 @@
+// mmai: Overwrite variables from twitter bootstrap before importing bootstrap!!
+// @import "compass/reset";
+$grid-gutter-width:60px !default;
+$mi-gutter-width: 60px;
+$mi-gutter-height: 80px;
+$mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
+$font-size-base: 16px !default;
+
+@import "_variables.scss";
+@import "bootstrap";
+@import "mi_fonts";
+@import "mi_mixins";
+@import "compass/typography/lists/horizontal-list";
+@import "_font-awesome.scss";
+// @import "crew.scss";
+
+$ecc-rot: rgb(167, 3, 48);
+$ecc-rot-dunkler: rgb(162, 3, 47);
+$schwarz: rgb(0, 0, 0);
+
+// Farben:
+$color-web-schwarz: rgb(30, 30, 30);
+$color-mi-blau: #102748;
+$color-mi-taubenblau:#B3B5C7;
+$color-mi-golden: #867551;
+// Grautoene:
+$color-grau1: rgb(134, 136, 137);
+$color-grau2: rgb(187, 189, 190);
+$color-grau3: #efedef;
+$white: #FFFFFF;
+
+// @extend these classes into more elaborate classes:
+.lighter {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.semi-bold {
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.invisible {
+  @include mi_hide_from_dom;
+}
+
+.rot {
+  color: $ecc-rot;
+}
+
+.blau {
+  color: $color-mi-blau;
+}
+
+.golden {
+  color: $color-mi-golden;
+}
+
+.grau {
+  color: $color-grau1;
+}
+
+// wrap around column divs to align them vertically:
+.row-vertical-align {
+  display: flex;
+  flex-direction: row;
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    // justify-content: center; /* Optional, to align inner items horizontally inside the column */
+  }
+}
+
+.vertical-align-parent {
+  .vertical-align-child {
+    @include vertical-align();
+  }
+}
+
+.mi-align-col-heights {
+  & > .row {
+    display: table;
+  }
+  [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+  // when using col heights as table cell, min-height is not working properly and has to be replaced with height:
+  @for $i from 1 through 4 {
+    .mi-height-#{$i} {
+      @include bp(laptop) {
+        height: $mi-height * $i;
+      }
+    }
+    .mi-xs-height-#{$i} {
+      @include bp(mobile) {
+        height: $mi-height * $i;
+      }
+      @include bp(tablet) {
+        height: $mi-height * $i;
+      }
+    }
+    .mi-sm-height-#{$i} {
+      @include bp(tablet) {
+        height: $mi-height * $i;
+      }
+    }
+  }
+}
+
+.mi-align-content-bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row !important;
+  & > div {
+    align-self: flex-end;
+  }
+}
+
+.mi-more-space-between-rows {
+  .row {
+    margin-bottom: $mi-gutter-height * 2;
+  }
+}
+
+.bg-blau, .mi-bg-blau {
+  background-color: $color-mi-blau;
+  color: $white;
+  a, a:hover {
+    color: $white;
+  }
+}
+
+.mi-bg-grey {
+  background-color: $color-grau1;
+}
+
+.mi-bg-lightgrey {
+  background-color: $color-grau3;
+}
+
+.no-line-height {
+  line-height: 0 !important;
+}
+
+.mi-vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+// =======
+// TYPO:
+// =======
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h1, .h1, h3, .h3 {
+  font-size: 28px;
+  line-height: 1.4em;
+}
+
+h4 {
+  font-size: 14px;
+  @extend .bold;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  line-height: 1.1em;
+}
+
+.mi-aktuelles {
+  h4 {
+    font-size: 14px;
+    line-height: 1.4281em;
+  }
+}
+
+.mi-textsize-2 {
+  font-size: 16px;
+}
+
+.mi-textsize-3 {
+  font-size: 28px;
+  line-height: 1.3em;
+  @extend .semi-bold;
+}
+
+.mi-textsize-4 {
+  font-size: 90px;
+  line-height: 1.2em;
+  h1, h2, h3, h4, p {
+    line-height: 1.2em;
+    font-size: 90px;
+    @include bp(mobile) {
+      font-size: 33px;
+    }
+    @include bp(tablet) {
+      font-size: 60px;
+    }
+  }
+}
+
+.mi-toggler {
+  cursor: pointer;
+}
+
+.mi-twistie {
+  position: relative;
+  &:hover {
+    text-decoration: none;
+  }
+  &:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none !important;
+    color: $color-mi-golden;
+    font-size: 60px;
+    line-height: 1em;
+    float: left;
+    margin-top: -20px;
+  }
+}
+
+.mi-twistie-up {
+  @extend .mi-twistie;
+  &:after {
+    content: "\f0d8";
+    //font-family: FontAwesome;
+    //font-style: normal;
+    //font-weight: normal;
+    //text-decoration: none !important;
+    //color: $ecc-rot-dunkler;
+    //font-size: 35px;
+    //float:left;
+  }
+}
+
+.mi-twistie-right {
+  @extend .mi-twistie;
+  &:after {
+    content: "\f0da";
+    //font-family: FontAwesome;
+    //font-style: normal;
+    //font-weight: normal;
+    //text-decoration: none !important;
+    //color: $ecc-rot-dunkler;
+    //font-size: 35px;
+    //float:left;
+  }
+}
+
+/*
+
+ */
+
+// =======
+// LAYOUT:
+// =======
+
+// make all images responsive by default:
+img {
+  @extend .img-responsive;
+}
+
+.mi-link-neutral {
+  a {
+    color: $color-web-schwarz;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mi-padding-leftright {
+  padding-left: $mi-gutter-width/2;
+  padding-right: $mi-gutter-width/2;
+}
+
+.mi-padding-top {
+  padding-top: $mi-gutter-height/2;
+}
+
+.mi-nopadding-left {
+  @include bp(desktop) {
+    padding-left: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.mi-sm-nopadding-left {
+  @include bp(tablet) {
+    padding-left: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.mi-section-start {
+  padding-top: $mi-gutter-height !important;
+  padding-bottom: 0 !important;
+  margin-bottom: -20px !important;
+}
+
+.mi-nopadding {
+  @include bp(desktop) {
+    padding: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding: 0 !important;
+    }
+  }
+  @include bp(tablet) {
+    padding: 0 !important;
+    & > .ce_text, & > .ce_image {
+      padding: 0 !important;
+    }
+  }
+}
+
+.mi-nopadding-top {
+  padding-top:0 !important;
+  &.mod_article > .row > [class^="col-"] , & .container > .row > [class^="col-"] {
+    padding-top:0 !important;
+  }
+}
+
+.mi-nopadding-bottom {
+  padding-bottom:0 !important;
+  &.mod_article > .row > [class^="col-"] , & .container > .row > [class^="col-"] {
+    padding-bottom:0 !important;
+  }
+}
+
+.mi-box {
+  padding: $mi-gutter-height/2 $mi-gutter-width/2;
+}
+
+.ce_text {
+  overflow: hidden;
+  @include bp(mobile) {
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+}
+
+.mi-spacer-1 {
+  height:$mi-gutter-height/2;
+}
+
+.mi-spacer-2 {
+  height:$mi-gutter-height;
+}
+
+
+
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.4em;
+  font-weight: 600;
+  font-style: normal;
+  color: $color-web-schwarz;
+}
+
+$header-height: 170px;
+$header-height-mobile: 220px; // navigation below logo
+$header-height-shrink: 100px;
+$header-top: 80px;
+$header-bottom: 25px;
+
+#header {
+  overflow: hidden;
+  height: $header-height;
+  width: 100%;
+  background-color: #FFF;
+  padding-top: $header-top;
+  margin-bottom: $header-bottom;
+  z-index: 9999;
+  top: 0;
+  position: fixed;
+
+  @include bp(mobile) {
+    padding: 5px;
+    height: $header-height-mobile;
+  }
+
+  & > .inside {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  // animation:
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+
+  &.shrink {
+    background-color: #FFF;
+    height: $header-height-shrink;
+    padding-top: 0;
+    @include bp(mobile) {
+      height: auto;
+    }
+  }
+
+  .mi-logo {
+    max-width: 100px;
+  }
+}
+
+#container {
+  margin-top: $header-height;
+  @include bp(mobile) {
+    margin-top: $header-height-mobile;
+  }
+}
+
+#logo {
+  max-width: 270px;
+  padding: 0;
+  img {
+    @extend .img-responsive;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  @include bp(mobile) {
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.shrink #logo {
+  max-width: 310px;
+}
+
+.mi-nav-top {
+  margin-right: 5px;
+  margin-top: 32px;
+  @include bp(mobile) {
+    text-align: center;
+  }
+  @extend .bold;
+  @extend .text-right;
+  a {
+    color: $color-web-schwarz;
+    &:active, &:visited, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      color: $white;
+      background-color: $color-mi-blau !important;
+      text-decoration: none;
+    }
+    padding: 5px 15px !important;
+    //@include bp(mobile) {
+    //  padding-left:10px;
+    //}
+  }
+  span {
+    padding-left: 20px;
+    @include bp(mobile) {
+      padding-left: 10px;
+    }
+  }
+  a, span {
+    font-size: 16px;
+    @extend .bold;
+    @include bp(mobile) {
+      font-size: 11px;
+    }
+    @include bp(tablet) {
+      font-size: 13px;
+    }
+  }
+  .active {
+    color: $color-mi-blau;
+  }
+  ul {
+    float: right;
+    @include bp(mobile) {
+      float: none;
+      display: inline;
+    }
+    @include horizontal-list-container;
+    & > li {
+      @include horizontal-list-item;
+      @include bp(mobile) {
+        float: none;
+        display: inline;
+      }
+    }
+  }
+}
+
+.mi-nav-footer {
+  @extend .bold;
+  @extend .text-right;
+  a {
+    color: $color-web-schwarz;
+    &:hover {
+      color: $ecc-rot;
+      text-decoration: none;
+    }
+    padding-left: 20px;
+  }
+  span {
+    padding-left: 20px;
+  }
+  a, span {
+    font-size: 16px;
+    @extend .bold;
+  }
+  .active {
+    color: $ecc-rot;
+  }
+  ul {
+    float: right;
+    @include horizontal-list-container;
+    & > li {
+      @include horizontal-list-item;
+    }
+  }
+}
+
+#footer {
+  .container {
+    padding: 5px 0px 15px 0px;
+    background-color: $color-grau2;
+    &.inside {
+      padding-right: 10px;
+    }
+  }
+}
+
+#main {
+  p {
+    hyphens: auto;
+  }
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+  }
+  ul > li:before {
+    display: inline-block;
+    //content: "\2014\a0";
+    content: "-";
+    font-weight: 300;
+    width: 1em;
+    margin-left: -1em;
+  }
+  // Nicht aus main herausnehmen!
+  .mod_article > .row > [class^="col-"] , .container > .row > [class^="col-"] {
+    padding-top:$mi-gutter-height/2;
+    padding-bottom:$mi-gutter-height/2;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+
+.row-blue {
+  background-color: $color-mi-blau;
+  color: #FFF;
+}
+
+.row-lightblue {
+  background-color: $color-mi-taubenblau;
+  color: $web-schwarz;
+}
+
+.mi-margin-top {
+  margin-top: 30px;
+}
+
+.mi-bgimage-in-text {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.mi-bgimage-bottom {
+  background-position: bottom !important;
+}
+
+.mi-bgimage-top {
+  background-position: top !important;
+}
+
+@for $i from 1 through 4 {
+  .mi-height-#{$i} {
+    @include bp(desktop) {
+      min-height: $mi-height * $i;
+    }
+  }
+  .mi-xs-height-#{$i} {
+    @include bp(mobile) {
+      min-height: $mi-height * $i;
+    }
+  }
+  .mi-sm-height-#{$i} {
+    @include bp(tablet) {
+      min-height: $mi-height * $i;
+    }
+  }
+}
+
+img.mime_icon {
+  display: inline;
+}
+
+.ce_downloads {
+  ul {
+    @extend .list-group;
+  }
+  li {
+    @extend .list-group-item;
+    &:before {
+      content: "" !important;
+    }
+  }
+}
+
+.mi-datatable {
+  td {
+    padding: 5px 10px 5px 0;
+  }
+}
+
+.mi-videowrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+

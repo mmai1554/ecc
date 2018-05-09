@@ -119,7 +119,7 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 }
 
 
-$mi-em-base: 16 !default;
+$mi-em-base:$font-size-base;
 // It strips the unit of measure and returns it
 @function mi-strip-unit($num) {
   @return $num / ($num * 0 + 1);
