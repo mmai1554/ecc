@@ -547,6 +547,10 @@ $header-bottom: 25px;
 .row-blue {
   background-color: $color-mi-blau;
   color: #FFF;
+  a, a:hover, a:focus {
+    color:#FFF;
+    text-decoration:underline;
+  }
 }
 
 .row-lightblue {
