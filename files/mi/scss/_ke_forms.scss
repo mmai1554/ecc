@@ -43,3 +43,7 @@
   }
 
 }
+
+.invisible {
+  @include mi_hide_from_dom;
+}

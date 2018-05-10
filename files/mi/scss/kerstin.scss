@@ -32,47 +32,6 @@ $white: #FFFFFF;
 @import "_ke_forms.scss";
 
 
-
-// @extend these classes into more elaborate classes:
-.lighter {
-  font-weight: 400;
-  font-style: normal;
-}
-
-.semi-bold {
-  font-weight: 600;
-  font-style: normal;
-}
-
-.bold {
-  font-weight: 700;
-  font-style: normal;
-}
-
-.invisible {
-  @include mi_hide_from_dom;
-}
-
-.rot {
-  color: $ecc-rot;
-}
-
-.blau {
-  color: $color-mi-blau;
-}
-
-.golden {
-  color: $color-mi-golden;
-}
-
-.grau {
-  color: $color-grau1;
-}
-
-.mi-line-height-2 {
-  line-height: 1.5em;
-}
-
 // wrap around column divs to align them vertically:
 .row-vertical-align {
   display: flex;
@@ -91,50 +50,6 @@ $white: #FFFFFF;
   }
 }
 
-
-.mi-align-content-bottom {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: row !important;
-  & > div {
-    align-self: flex-end;
-  }
-}
-
-.mi-more-space-between-rows {
-  .row {
-    margin-bottom: $mi-gutter-height * 2;
-  }
-}
-
-.bg-blau, .mi-bg-blau {
-  background-color: $color-mi-blau;
-  color: $white;
-  a, a:hover {
-    color: $white;
-  }
-}
-
-.mi-bg-grey {
-  background-color: $color-grau1;
-}
-
-.mi-bg-lightgrey {
-  background-color: $color-grau3;
-}
-
-.no-line-height {
-  line-height: 0 !important;
-}
-
-.mi-vcenter {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
-}
-
 // =======
 // TYPO:
 // =======
@@ -151,7 +66,8 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 h4 {
   font-size:1em;
-  @extend .bold;
+  font-weight: 700;
+  font-style: normal;
   margin-top: 0px;
   margin-bottom: 2px;
   line-height: 1.1em;
@@ -171,7 +87,8 @@ h4 {
 .mi-textsize-3 {
   font-size: 28px;
   line-height: 1.3em;
-  @extend .semi-bold;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .mi-textsize-4 {
@@ -271,6 +188,10 @@ img {
   padding-top: $mi-gutter-height/2;
 }
 
+.mi-padding-bottom {
+  padding-bottom: $mi-gutter-height/2;
+}
+
 .mi-nopadding-left {
   @include bp(desktop) {
     padding-left: 0 !important;
@@ -341,8 +262,15 @@ img {
   height: $mi-gutter-height/2;
 }
 
+
 .mi-spacer-2 {
   height: $mi-gutter-height;
+}
+
+.mod_article.mi-spacer-2 {
+  &.mod_article > .row > [class^="col-"] {
+    padding-bottom: $mi-gutter-height !important;
+  }
 }
 
 .mi-spacer-3 {
@@ -416,8 +344,7 @@ $header-bottom: 25px;
   @include bp(mobile) {
     text-align: center;
   }
-  @extend .bold;
-  @extend .text-right;
+  text-align: right;
   a {
     color: $color-web-schwarz;
     &:active, &:visited, &:focus {
@@ -441,7 +368,7 @@ $header-bottom: 25px;
   }
   a, span {
     font-size: 16px;
-    @extend .bold;
+    @include bold;
     @include bp(mobile) {
       font-size: 11px;
     }
@@ -469,42 +396,12 @@ $header-bottom: 25px;
   }
 }
 
-.mi-nav-footer {
-  @extend .bold;
-  @extend .text-right;
-  a {
-    color: $color-web-schwarz;
-    &:hover {
-      color: $ecc-rot;
-      text-decoration: none;
-    }
-    padding-left: 20px;
-  }
-  span {
-    padding-left: 20px;
-  }
-  a, span {
-    font-size: 16px;
-    @extend .bold;
-  }
-  .active {
-    color: $ecc-rot;
-  }
-  ul {
-    float: right;
-    @include horizontal-list-container;
-    & > li {
-      @include horizontal-list-item;
-    }
-  }
-}
 
 #footer {
   .container {
-    padding: 5px 0px 15px 0px;
     background-color: #FFFFFF;
     font-size:12px;
-    font-weight:400px;
+    font-weight:400;
     &.inside {
       padding-right: 10px;
     }

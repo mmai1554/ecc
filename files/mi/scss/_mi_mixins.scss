@@ -52,6 +52,16 @@
   border:1px solid $color !important;
 }
 
+@mixin lighter {
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin bold {
+  font-style: normal;
+  font-weight: 700;
+}
+
 /**
 From twitter bootstrap:
 $screen-xs:                  480px !default;

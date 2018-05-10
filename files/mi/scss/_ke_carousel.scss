@@ -49,6 +49,6 @@
 }
 
 .mi-card-text {
-  @extend .lighter;
+  @include lighter;
   margin-bottom:$mi-gutter-height/2;
 }

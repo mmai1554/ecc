@@ -1,0 +1,58 @@
+// @extend these classes into more elaborate classes:
+.lighter {
+  @include lighter;
+}
+
+.semi-bold {
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.invisible {
+  @include mi_hide_from_dom;
+}
+
+.rot {
+  color: $ecc-rot;
+}
+
+.blau {
+  color: $color-mi-blau;
+}
+
+.golden {
+  color: $color-mi-golden;
+}
+
+.grau {
+  color: $color-grau1;
+}
+
+.mi-line-height-2 {
+  line-height: 1.5em;
+}
+
+.bg-blau, .mi-bg-blau {
+  background-color: $color-mi-blau;
+  color: $white;
+  a, a:hover {
+    color: $white;
+  }
+}
+
+.mi-bg-grey {
+  background-color: $color-grau1;
+}
+
+.mi-bg-lightgrey {
+  background-color: $color-grau3;
+}
+
+.no-line-height {
+  line-height: 0 !important;
+}
