@@ -21,6 +21,7 @@
 	<?= $this->stylesheets ?>
 	<?= $this->mooScripts ?>
     <script src="/files/mi/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR" crossorigin="anonymous"></script>
     <script src="/files/mi/js/kerstin-eisenschmidt.js"></script>
 	<?= $this->head ?>
 
@@ -56,12 +57,12 @@
                         <div class="mi-nav-top">
                             <nav>
                             <ul class="nav nav-pills">
-                                <li><a href="#ke-home">KERSTIN – Keymove Speaker</a></li>
-                                <li><a href="#ke-aktuell">Aktuell</a></li>
-                                <li><a href="#ke-keymove">Keymove</a></li>
-                                <li><a href="#ke-legend">Legendär</a></li>
-                                <li><a href="#ke-kontakt">Anfrage / Kontakt</a></li>
-                                <li><a href="#ke-impressum">Impressum</a></li>
+                                <li><a class="scroll" href="#ke-home">KERSTIN – Keymove Speaker</a></li>
+                                <li><a class="scroll" href="#ke-aktuell">Aktuell</a></li>
+                                <li><a class="scroll" href="#ke-keymove">Keymove</a></li>
+                                <li><a class="scroll" href="#ke-legend" data-offset="120">Legendär</a></li>
+                                <li><a class="scroll" href="#ke-kontakt">Anfrage / Kontakt</a></li>
+                                <li><a class="scroll" href="#ke-impressum">Impressum</a></li>
                             </ul>
                             </nav>
                         </div>
