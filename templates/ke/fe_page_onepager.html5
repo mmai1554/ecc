@@ -21,7 +21,6 @@
 	<?= $this->stylesheets ?>
 	<?= $this->mooScripts ?>
     <script src="/files/mi/js/bootstrap.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR" crossorigin="anonymous"></script>
     <script src="/files/mi/js/kerstin-eisenschmidt.js"></script>
 	<?= $this->head ?>
 
@@ -55,15 +54,18 @@
                     </div>
                     <div class="col-md-10 col-xs-12">
                         <div class="mi-nav-top">
+							<?php
+							$prefix = $this->replaceInsertTags( '{{page::alias}}' ) === 'home' ? '' : '/home.html';
+							?>
                             <nav>
-                            <ul class="nav nav-pills">
-                                <li><a class="scroll" href="#ke-home">KERSTIN – Keymove Speaker</a></li>
-                                <li><a class="scroll" href="#ke-aktuell">Aktuell</a></li>
-                                <li><a class="scroll" href="#ke-keymove">Keymove</a></li>
-                                <li><a class="scroll" href="#ke-legend" data-offset="120">Legendär</a></li>
-                                <li><a class="scroll" href="#ke-kontakt">Anfrage / Kontakt</a></li>
-                                <li><a class="scroll" href="#ke-impressum">Impressum</a></li>
-                            </ul>
+                                <ul class="nav nav-pills">
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-home">KERSTIN – Keymove Speaker</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-aktuell">Aktuell</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-keymove">Keymove</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-legend" data-offset="120">Legendär</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-kontakt">Anfrage / Kontakt</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-impressum">Impressum</a></li>
+                                </ul>
                             </nav>
                         </div>
                     </div>
@@ -114,19 +116,17 @@
 	<?php $this->sections( 'after' ); ?>
 
 	<?php $this->block( 'footer' ); ?>
-	<?php if ( $this->footer ): ?>
-        <footer id="footer">
-            <div class="inside container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="center-block">
-						<?= $this->footer ?>
-                        </div>
-                    </div>
+
+    <footer id="footer">
+        <div class="inside container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span>&copy; - <?php echo( date( 'Y' ) ); ?> Kerstin Eisenschmidt - Keynote Speaker</span>
                 </div>
             </div>
-        </footer>
-	<?php endif; ?>
+        </div>
+    </footer>
+
 	<?php $this->endblock(); ?>
 
 </div>
@@ -134,7 +134,7 @@
 <?php $this->sections( 'bottom' ); ?>
 <?php $this->endblock(); ?>
 
-<?php  $this->mootools ?>
+<?php $this->mootools ?>
 
 </body>
 </html>
