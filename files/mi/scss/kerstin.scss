@@ -1,6 +1,6 @@
 // mmai: Overwrite variables from twitter bootstrap before importing bootstrap!!
 // @import "compass/reset";
-$grid-gutter-width:60px !default;
+$grid-gutter-width: 60px !default;
 $mi-gutter-width: 60px;
 $mi-gutter-height: 80px;
 $mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
@@ -12,7 +12,7 @@ $font-size-base: 16px !default;
 @import "mi_mixins";
 @import "compass/typography/lists/horizontal-list";
 @import "_font-awesome.scss";
-// @import "crew.scss";
+@import "_ke_carousel.scss";
 
 $ecc-rot: rgb(167, 3, 48);
 $ecc-rot-dunkler: rgb(162, 3, 47);
@@ -21,7 +21,7 @@ $schwarz: rgb(0, 0, 0);
 // Farben:
 $color-web-schwarz: rgb(30, 30, 30);
 $color-mi-blau: #102748;
-$color-mi-taubenblau:#B3B5C7;
+$color-mi-taubenblau: #B3B5C7;
 $color-mi-golden: #867551;
 // Grautoene:
 $color-grau1: rgb(134, 136, 137);
@@ -83,37 +83,6 @@ $white: #FFFFFF;
   }
 }
 
-.mi-align-col-heights {
-  & > .row {
-    display: table;
-  }
-  [class*="col-"] {
-    float: none;
-    display: table-cell;
-    vertical-align: top;
-  }
-  // when using col heights as table cell, min-height is not working properly and has to be replaced with height:
-  @for $i from 1 through 4 {
-    .mi-height-#{$i} {
-      @include bp(laptop) {
-        height: $mi-height * $i;
-      }
-    }
-    .mi-xs-height-#{$i} {
-      @include bp(mobile) {
-        height: $mi-height * $i;
-      }
-      @include bp(tablet) {
-        height: $mi-height * $i;
-      }
-    }
-    .mi-sm-height-#{$i} {
-      @include bp(tablet) {
-        height: $mi-height * $i;
-      }
-    }
-  }
-}
 
 .mi-align-content-bottom {
   display: -webkit-box;
@@ -334,16 +303,16 @@ img {
 }
 
 .mi-nopadding-top {
-  padding-top:0 !important;
-  &.mod_article > .row > [class^="col-"] , & .container > .row > [class^="col-"] {
-    padding-top:0 !important;
+  padding-top: 0 !important;
+  &.mod_article > .row > [class^="col-"], & .container > .row > [class^="col-"] {
+    padding-top: 0 !important;
   }
 }
 
 .mi-nopadding-bottom {
-  padding-bottom:0 !important;
-  &.mod_article > .row > [class^="col-"] , & .container > .row > [class^="col-"] {
-    padding-bottom:0 !important;
+  padding-bottom: 0 !important;
+  &.mod_article > .row > [class^="col-"], & .container > .row > [class^="col-"] {
+    padding-bottom: 0 !important;
   }
 }
 
@@ -361,15 +330,12 @@ img {
 }
 
 .mi-spacer-1 {
-  height:$mi-gutter-height/2;
+  height: $mi-gutter-height/2;
 }
 
 .mi-spacer-2 {
-  height:$mi-gutter-height;
+  height: $mi-gutter-height;
 }
-
-
-
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -567,16 +533,15 @@ $header-bottom: 25px;
     margin-left: -1em;
   }
   // Nicht aus main herausnehmen!
-  .mod_article > .row > [class^="col-"] , .container > .row > [class^="col-"] {
-    padding-top:$mi-gutter-height/2;
-    padding-bottom:$mi-gutter-height/2;
+  .mod_article > .row > [class^="col-"], .container > .row > [class^="col-"] {
+    padding-top: $mi-gutter-height/2;
+    padding-bottom: $mi-gutter-height/2;
     position: relative;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
 }
-
 
 .row-blue {
   background-color: $color-mi-blau;
@@ -659,5 +624,29 @@ img.mime_icon {
     width: 100%;
     height: 100%;
   }
+}
+
+.mi-control-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+
+.mi-card {
+  background-color:white;
+  width:100%;
+  height:300px;
+  padding:40px 60px;
+  text-align:center;
+}
+
+.mi-card-text {
+  @extend .lighter;
+  margin-bottom:$mi-gutter-height/2;
+}
+
+.mi-card-signature {
 }
 
