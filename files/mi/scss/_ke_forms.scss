@@ -1,0 +1,45 @@
+
+
+.ke-form {
+
+  input, textarea {
+    display:block;
+    width:100%;
+    margin:5px 0;
+    color:$web-schwarz;
+    padding:3px;
+    &.submit {
+      background-color: $color-mi-blau;
+      border: 2px solid #FFF;
+      color: #FFF;
+      margin-top: 30px;
+    }
+    &.submit:active {
+      background-color: $color-mi-taubenblau;
+      color: $color-mi-blau;
+    }
+  }
+
+  label {
+    font-weight:600;
+    color:#fbfbfb;
+  }
+
+  span.mandatory {
+    font-size:10px;
+    font-weight:400;
+  }
+
+  .captcha_text {
+    font-weight:400;
+    font-size:0.9em;
+  }
+
+  p.error {
+    background-color:#e0c7df;
+    border:2px solid darkred;
+    color: darkred;
+    padding: 10px;
+  }
+
+}
