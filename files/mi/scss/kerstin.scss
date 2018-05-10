@@ -5,6 +5,7 @@ $mi-gutter-width: 60px;
 $mi-gutter-height: 80px;
 $mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
 $font-size-base: 16px !default;
+$link-color:#102748;
 
 @import "_variables.scss";
 @import "bootstrap";
