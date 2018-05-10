@@ -38,9 +38,10 @@ jQuery.noConflict();
             var dest = $(this).attr('href');
             var offset = $(this).attr('data-offset');
             offset =  offset === undefined ? 70 : parseInt(offset);
-            console.log(offset);
             $('html,body').animate({scrollTop: $(dest).offset().top - offset}, 'slow');
         });
+
+        $('#keform').attr('action', 'home.html#ke-kontakt');
 
 
     });
