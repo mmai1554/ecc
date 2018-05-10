@@ -7,14 +7,6 @@ $mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspr
 $font-size-base: 16px !default;
 $link-color:#102748;
 
-@import "_variables.scss";
-@import "bootstrap";
-@import "mi_fonts";
-@import "mi_mixins";
-@import "compass/typography/lists/horizontal-list";
-@import "_font-awesome.scss";
-@import "_ke_carousel.scss";
-
 $ecc-rot: rgb(167, 3, 48);
 $ecc-rot-dunkler: rgb(162, 3, 47);
 $schwarz: rgb(0, 0, 0);
@@ -29,6 +21,17 @@ $color-grau1: rgb(134, 136, 137);
 $color-grau2: rgb(187, 189, 190);
 $color-grau3: #efedef;
 $white: #FFFFFF;
+
+@import "_variables.scss";
+@import "bootstrap";
+@import "mi_fonts";
+@import "mi_mixins";
+@import "compass/typography/lists/horizontal-list";
+@import "_font-awesome.scss";
+@import "_ke_carousel.scss";
+@import "_ke_forms.scss";
+
+
 
 // @extend these classes into more elaborate classes:
 .lighter {
@@ -64,6 +67,10 @@ $white: #FFFFFF;
 
 .grau {
   color: $color-grau1;
+}
+
+.mi-line-height-2 {
+  line-height: 1.5em;
 }
 
 // wrap around column divs to align them vertically:
@@ -137,13 +144,13 @@ h1, .h1, h2, .h2, h3, .h3 {
   margin-bottom: 10px;
 }
 
-h1, .h1, h3, .h3 {
+h1, .h1, h2, .h2, h3, .h3 {
   font-size: 28px;
   line-height: 1.4em;
 }
 
 h4 {
-  font-size: 14px;
+  font-size:1em;
   @extend .bold;
   margin-top: 0px;
   margin-bottom: 2px;
@@ -338,6 +345,10 @@ img {
   height: $mi-gutter-height;
 }
 
+.mi-spacer-3 {
+  height: $mi-gutter-height/4;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: $font-size-base;
@@ -388,33 +399,15 @@ $header-bottom: 25px;
   }
 
   .mi-logo {
-    max-width: 100px;
+      max-width: 100px;
+    }
   }
-}
 
 #container {
   margin-top: $header-height;
   @include bp(mobile) {
     margin-top: $header-height-mobile;
   }
-}
-
-#logo {
-  max-width: 270px;
-  padding: 0;
-  img {
-    @extend .img-responsive;
-    image-rendering: -webkit-optimize-contrast;
-  }
-  @include bp(mobile) {
-    max-width: 320px;
-    margin: 0 auto;
-    text-align: center;
-  }
-}
-
-.shrink #logo {
-  max-width: 310px;
 }
 
 .mi-nav-top {
@@ -509,7 +502,9 @@ $header-bottom: 25px;
 #footer {
   .container {
     padding: 5px 0px 15px 0px;
-    background-color: $color-grau2;
+    background-color: #FFFFFF;
+    font-size:12px;
+    font-weight:400px;
     &.inside {
       padding-right: 10px;
     }
@@ -631,27 +626,10 @@ img.mime_icon {
   }
 }
 
-.mi-control-right {
-  position: absolute;
-  top: 50%;
-  margin-top: -10px;
-  z-index: 5;
-  display: inline-block;
-}
 
-.mi-card {
-  background-color:white;
-  width:100%;
-  height:300px;
-  padding:40px 60px;
-  text-align:center;
-}
 
-.mi-card-text {
-  @extend .lighter;
-  margin-bottom:$mi-gutter-height/2;
+.mi-danke {
+  text-align: center;
+  background-color: $color-mi-taubenblau;
+  padding: 30px;
 }
-
-.mi-card-signature {
-}
-
