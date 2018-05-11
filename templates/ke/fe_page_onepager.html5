@@ -58,7 +58,7 @@
 							$prefix = $this->replaceInsertTags( '{{page::alias}}' ) === 'home' ? '' : '/home.html';
 							?>
                             <nav>
-                                <ul class="nav nav-pills">
+                                <ul class="nav">
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-home">KERSTIN – Keymove Speaker</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-aktuell">Aktuell</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-keymove">Keymove</a></li>
@@ -122,6 +122,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <span>&copy; - <?php echo( date( 'Y' ) ); ?> Kerstin Eisenschmidt - Keynote Speaker</span>
+                    <div id="mimob"></div>
                 </div>
             </div>
         </div>
