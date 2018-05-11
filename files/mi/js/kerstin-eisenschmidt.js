@@ -32,12 +32,15 @@ jQuery.noConflict();
             }
         });
 
+
         // smooth scrolling with anchor links, mi:
         $("a.scroll[href^=#]").click(function (e) {
+            var is_mobile = $("#mimob").css('visibility') === 'hidden';
             e.preventDefault();
             var dest = $(this).attr('href');
             var offset = $(this).attr('data-offset');
-            offset =  offset === undefined ? 70 : parseInt(offset);
+            var basic_offset = is_mobile ? 140 : 70;
+            offset =  offset === undefined ? basic_offset : parseInt(offset);
             $('html,body').animate({scrollTop: $(dest).offset().top - offset}, 'slow');
         });
 
