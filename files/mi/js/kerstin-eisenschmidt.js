@@ -39,7 +39,7 @@ jQuery.noConflict();
             e.preventDefault();
             var dest = $(this).attr('href');
             var offset = $(this).attr('data-offset');
-            var basic_offset = is_mobile ? 140 : 70;
+            var basic_offset = is_mobile ? 190 : 70;
             offset =  offset === undefined ? basic_offset : parseInt(offset);
             $('html,body').animate({scrollTop: $(dest).offset().top - offset}, 'slow');
         });
