@@ -150,12 +150,16 @@ $id_of_carousel = 'carousel_kunden';
     <!-- Controls -->
 
     <a class="left carousel-control" href="#<?php echo( $id_of_carousel ); ?>" role="button" data-slide="prev">
-        <div class="mi-carousel-control prev"></div>
+        <div class="mi-carousel-control prev">
+            <img src="/files/kerstin-eisenschmidt/cc-left.png" alt="carousel control left">
+        </div>
         <span class="sr-only">Previous</span>
     </a>
 
     <a class="right carousel-control" href="#<?php echo( $id_of_carousel ); ?>" role="button" data-slide="next">
-        <div class="mi-carousel-control next"></div>
+        <div class="mi-carousel-control next">
+            <img src="/files/kerstin-eisenschmidt/cc-right.png" alt="carousel control right">
+        </div>
         <span class="sr-only">Next</span>
     </a>
 </div>
