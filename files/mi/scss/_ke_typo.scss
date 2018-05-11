@@ -56,3 +56,63 @@
 .no-line-height {
   line-height: 0 !important;
 }
+
+
+#main {
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  h1, .h1, h2, .h2, h3, .h3 {
+    font-size: 28px;
+    line-height: 1.4em;
+    @include bp(mobile) {
+      font-size:18px;
+      line-height:1.4em;
+    }
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 700;
+    font-style: normal;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    line-height: 1.1em;
+  }
+
+}
+
+
+.mi-aktuelles {
+  h4 {
+    font-size: 14px;
+    line-height: 1.4281em;
+  }
+}
+
+.mi-textsize-2 {
+  font-size: 16px;
+}
+
+.mi-textsize-3 {
+  font-size: 28px;
+  line-height: 1.3em;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mi-textsize-4 {
+  font-size: 90px;
+  line-height: 1.2em;
+  h1, h2, h3, h4, p {
+    line-height: 1.2em;
+    font-size: 90px;
+    @include bp(mobile) {
+      font-size: 33px;
+    }
+    @include bp(tablet) {
+      font-size: 60px;
+    }
+  }
+}

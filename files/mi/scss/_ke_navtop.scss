@@ -1,0 +1,59 @@
+.mi-nav-top {
+  margin-right: 5px;
+  margin-top: 32px;
+  @include bp(mobile) {
+    text-align: center;
+    margin-top:15px;
+  }
+  text-align: right;
+  a {
+    color: $color-web-schwarz;
+    &:active, &:visited, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      color: $white;
+      background-color: $color-mi-blau !important;
+      text-decoration: none;
+    }
+    padding: 5px 15px !important;
+    @include bp(mobile) {
+      padding:2px 15px !important;
+    }
+  }
+  span {
+    padding-left: 20px;
+    @include bp(mobile) {
+      padding-left: 10px;
+    }
+  }
+  a, span {
+    font-size: 16px;
+    @include bold;
+    @include bp(mobile) {
+      font-size: 11px;
+    }
+    @include bp(tablet) {
+      font-size: 13px;
+    }
+  }
+  .active {
+    color: $color-mi-blau;
+  }
+  ul {
+    float: right;
+    @include bp(mobile) {
+      float: none;
+      display: inline;
+    }
+    @include horizontal-list-container;
+    & > li {
+      @include horizontal-list-item;
+      @include bp(mobile) {
+        float: none;
+        display: block;
+        line-height:1.1em;
+      }
+    }
+  }
+}

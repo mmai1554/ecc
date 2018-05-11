@@ -5,7 +5,7 @@ $mi-gutter-width: 60px;
 $mi-gutter-height: 80px;
 $mi-height: 190px; // Eine Hoeheneinheit bezogen auf die Containerbreite (entspricht col-md-2)
 $font-size-base: 16px !default;
-$link-color:#102748;
+$link-color: #102748;
 
 $ecc-rot: rgb(167, 3, 48);
 $ecc-rot-dunkler: rgb(162, 3, 47);
@@ -27,10 +27,11 @@ $white: #FFFFFF;
 @import "mi_fonts";
 @import "mi_mixins";
 @import "compass/typography/lists/horizontal-list";
-@import "_font-awesome.scss";
-@import "_ke_carousel.scss";
-@import "_ke_forms.scss";
-
+// @import "font-awesome.scss";
+@import "_ke_typo.scss";
+@import "ke_navtop.scss";
+@import "ke_carousel.scss";
+@import "ke_forms.scss";
 
 // wrap around column divs to align them vertically:
 .row-vertical-align {
@@ -50,138 +51,10 @@ $white: #FFFFFF;
   }
 }
 
-// =======
-// TYPO:
-// =======
-
-h1, .h1, h2, .h2, h3, .h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-h1, .h1, h2, .h2, h3, .h3 {
-  font-size: 28px;
-  line-height: 1.4em;
-}
-
-h4 {
-  font-size:1em;
-  font-weight: 700;
-  font-style: normal;
-  margin-top: 0px;
-  margin-bottom: 2px;
-  line-height: 1.1em;
-}
-
-.mi-aktuelles {
-  h4 {
-    font-size: 14px;
-    line-height: 1.4281em;
-  }
-}
-
-.mi-textsize-2 {
-  font-size: 16px;
-}
-
-.mi-textsize-3 {
-  font-size: 28px;
-  line-height: 1.3em;
-  font-style: normal;
-  font-weight: 600;
-}
-
-.mi-textsize-4 {
-  font-size: 90px;
-  line-height: 1.2em;
-  h1, h2, h3, h4, p {
-    line-height: 1.2em;
-    font-size: 90px;
-    @include bp(mobile) {
-      font-size: 33px;
-    }
-    @include bp(tablet) {
-      font-size: 60px;
-    }
-  }
-}
-
-.mi-toggler {
-  cursor: pointer;
-}
-
-.mi-twistie {
-  position: relative;
-  &:hover {
-    text-decoration: none;
-  }
-  &:after {
-    content: "\f0d7";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none !important;
-    color: $color-mi-golden;
-    font-size: 60px;
-    line-height: 1em;
-    float: left;
-    margin-top: -20px;
-  }
-}
-
-.mi-twistie-up {
-  @extend .mi-twistie;
-  &:after {
-    content: "\f0d8";
-    //font-family: FontAwesome;
-    //font-style: normal;
-    //font-weight: normal;
-    //text-decoration: none !important;
-    //color: $ecc-rot-dunkler;
-    //font-size: 35px;
-    //float:left;
-  }
-}
-
-.mi-twistie-right {
-  @extend .mi-twistie;
-  &:after {
-    content: "\f0da";
-    //font-family: FontAwesome;
-    //font-style: normal;
-    //font-weight: normal;
-    //text-decoration: none !important;
-    //color: $ecc-rot-dunkler;
-    //font-size: 35px;
-    //float:left;
-  }
-}
-
-/*
-
- */
-
-// =======
-// LAYOUT:
-// =======
 
 // make all images responsive by default:
 img {
   @extend .img-responsive;
-}
-
-.mi-link-neutral {
-  a {
-    color: $color-web-schwarz;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-.mi-padding-leftright {
-  padding-left: $mi-gutter-width/2;
-  padding-right: $mi-gutter-width/2;
 }
 
 .mi-padding-top {
@@ -262,7 +135,6 @@ img {
   height: $mi-gutter-height/2;
 }
 
-
 .mi-spacer-2 {
   height: $mi-gutter-height;
 }
@@ -277,6 +149,16 @@ img {
   height: $mi-gutter-height/4;
 }
 
+
+// This class is for detecting small screen devices with javascript:
+#mimob {
+  display:none;
+  visibility: visible;
+  @include bp(mobile) {
+    visibility: hidden;
+  }
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: $font-size-base;
@@ -284,6 +166,9 @@ body {
   font-weight: 600;
   font-style: normal;
   color: $color-web-schwarz;
+  @include bp(mobile) {
+    font-size:14px;
+  }
 }
 
 $header-height: 170px;
@@ -327,9 +212,12 @@ $header-bottom: 25px;
   }
 
   .mi-logo {
-      max-width: 100px;
+    max-width: 100px;
+    @include bp(mobile) {
+      margin:0px auto;
     }
   }
+}
 
 #container {
   margin-top: $header-height;
@@ -338,70 +226,13 @@ $header-bottom: 25px;
   }
 }
 
-.mi-nav-top {
-  margin-right: 5px;
-  margin-top: 32px;
-  @include bp(mobile) {
-    text-align: center;
-  }
-  text-align: right;
-  a {
-    color: $color-web-schwarz;
-    &:active, &:visited, &:focus {
-      text-decoration: none;
-    }
-    &:hover {
-      color: $white;
-      background-color: $color-mi-blau !important;
-      text-decoration: none;
-    }
-    padding: 5px 15px !important;
-    //@include bp(mobile) {
-    //  padding-left:10px;
-    //}
-  }
-  span {
-    padding-left: 20px;
-    @include bp(mobile) {
-      padding-left: 10px;
-    }
-  }
-  a, span {
-    font-size: 16px;
-    @include bold;
-    @include bp(mobile) {
-      font-size: 11px;
-    }
-    @include bp(tablet) {
-      font-size: 13px;
-    }
-  }
-  .active {
-    color: $color-mi-blau;
-  }
-  ul {
-    float: right;
-    @include bp(mobile) {
-      float: none;
-      display: inline;
-    }
-    @include horizontal-list-container;
-    & > li {
-      @include horizontal-list-item;
-      @include bp(mobile) {
-        float: none;
-        display: inline;
-      }
-    }
-  }
-}
 
 
 #footer {
   .container {
     background-color: #FFFFFF;
-    font-size:12px;
-    font-weight:400;
+    font-size: 12px;
+    font-weight: 400;
     &.inside {
       padding-right: 10px;
     }
@@ -440,8 +271,8 @@ $header-bottom: 25px;
   background-color: $color-mi-blau;
   color: #FFF;
   a, a:hover, a:focus {
-    color:#FFF;
-    text-decoration:underline;
+    color: #FFF;
+    text-decoration: underline;
   }
 }
 
@@ -522,8 +353,6 @@ img.mime_icon {
     height: 100%;
   }
 }
-
-
 
 .mi-danke {
   text-align: center;
