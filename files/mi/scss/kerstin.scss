@@ -55,6 +55,7 @@ $white: #FFFFFF;
 // make all images responsive by default:
 img {
   @extend .img-responsive;
+  -ms-interpolation-mode: bicubic;
 }
 
 .mi-padding-top {
