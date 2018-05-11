@@ -167,7 +167,7 @@ body {
   font-style: normal;
   color: $color-web-schwarz;
   @include bp(mobile) {
-    font-size:14px;
+    font-size:13px;
   }
 }
 
@@ -234,7 +234,10 @@ $header-bottom: 25px;
     font-size: 12px;
     font-weight: 400;
     &.inside {
-      padding-right: 10px;
+      padding-top:20px;
+      @include bp(mobile) {
+        font-size:10px;
+      }
     }
   }
 }

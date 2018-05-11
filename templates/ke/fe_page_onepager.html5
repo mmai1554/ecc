@@ -62,7 +62,7 @@
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-home">KERSTIN – Keymove Speaker</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-aktuell">Aktuell</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-keymove">Keymove</a></li>
-                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-legend" data-offset="120">Legendär</a></li>
+                                    <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-legend">Legendär</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-kontakt">Anfrage / Kontakt</a></li>
                                     <li><a class="scroll" href="<?php echo( $prefix ); ?>#ke-impressum">Impressum</a></li>
                                 </ul>
